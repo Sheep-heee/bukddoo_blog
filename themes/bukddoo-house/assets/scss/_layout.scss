@@ -14,14 +14,19 @@ body {
   font-size: $font-size-base;
   color: $color-textBlack;
   background-color: $color-bgBeige;
-  .container {
+  .section {
     width: 100%;
-    max-width: $breakpoint-smallPC;
-    margin: 0 auto;
+    border-bottom: 1px solid $color-lineGray;
+    .container {
+      width: 100%;
+      max-width: $breakpoint-smallPC;
+      margin: 0 auto;
+    }
   }
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
   color: inherit;
 }

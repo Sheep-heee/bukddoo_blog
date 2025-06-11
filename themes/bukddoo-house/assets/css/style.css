@@ -34,18 +34,23 @@ html {
 
 body {
   font-size: 1rem;
-  font-family: "SUIT", sans-serif;
+  font-family: "Onest", "SUIT", sans-serif;
   font-size: 1rem;
-  color: #2F2F2F;
-  background-color: #E6E1E3;
+  color: #2f2f2f;
+  background-color: #e6e1e3;
 }
-body .container {
+body .section {
+  width: 100%;
+  border-bottom: 1px solid #5c5f66;
+}
+body .section .container {
   width: 100%;
   max-width: 80rem;
   margin: 0 auto;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
   color: inherit;
 }
