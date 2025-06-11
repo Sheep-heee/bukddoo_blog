@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "Onest";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/onest-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Onest";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../fonts/onest-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "SUIT";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/SUIT-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "SUIT";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../fonts/SUIT-ExtraBold.woff2") format("woff2");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-size: 1rem;
+  font-family: "SUIT", sans-serif;
+  font-size: 1rem;
+  color: #2F2F2F;
+  background-color: #E6E1E3;
+}
+body .container {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+ul, ol {
+  list-style: none;
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

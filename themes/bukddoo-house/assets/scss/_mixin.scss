@@ -1,0 +1,27 @@
+@mixin respond($breakpoint) {
+  @if $breakpoint == smallPC {
+    @media (max-width: $breakpoint-smallPC) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media (max-width: $breakpoint-tablet) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $breakpoint-mobile) {
+      @content;
+    }
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

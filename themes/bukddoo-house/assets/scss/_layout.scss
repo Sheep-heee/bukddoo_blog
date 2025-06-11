@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-size: 1rem;
+  font-family: $font-base;
+  font-size: $font-size-base;
+  color: $color-textBlack;
+  background-color: $color-bgBeige;
+  .container {
+    width: 100%;
+    max-width: $breakpoint-smallPC;
+    margin: 0 auto;
+  }
+}
+
+ul, ol {
+  list-style: none;
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
