@@ -1,0 +1,13 @@
+.main-container {
+  width: 100%;
+  section {
+    width: 100%;
+    border-bottom: 1px solid $color-lineGray;
+    .inner-container {
+      width: 100%;
+      max-width: $breakpoint-smallPC;
+      margin: 0 auto;
+      background-color: $color-white;
+    }
+  }
+}

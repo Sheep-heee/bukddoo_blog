@@ -22,7 +22,9 @@
   font-style: normal;
   src: url("../fonts/SUIT-ExtraBold.woff2") format("woff2");
 }
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -30,23 +32,17 @@
 
 html {
   font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
+  line-height: 1;
   font-size: 1rem;
   font-family: "Onest", "SUIT", sans-serif;
   font-size: 1rem;
   color: #2f2f2f;
   background-color: #e6e1e3;
-}
-body .section {
-  width: 100%;
-  border-bottom: 1px solid #5c5f66;
-}
-body .section .container {
-  width: 100%;
-  max-width: 80rem;
-  margin: 0 auto;
 }
 
 ul,
@@ -58,4 +54,46 @@ ol {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.main-container {
+  width: 100%;
+}
+.main-container section {
+  width: 100%;
+  border-bottom: 1px solid #5c5f66;
+}
+.main-container section .inner-container {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  background-color: #f4f6f9;
 }
