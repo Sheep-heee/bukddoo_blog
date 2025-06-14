@@ -1,0 +1,26 @@
+.privacy-container {
+  width: 100%;
+  max-width: $post-body-width;
+  padding: 6rem $spacing-32 $spacing-64;
+  margin: 0 auto;
+  word-break: keep-all;
+  h3 {
+    margin-bottom: $spacing-8;
+  }
+  p {
+    line-height: 150%;
+    &:nth-child(2),
+    &:nth-child(4) {
+      text-indent: 0.5em;
+    }
+    &.second_line {
+      margin-left: 0.5em;
+    }
+    &.third_line {
+      margin-left: 1em;
+    }
+  }
+  a {
+    color: $color-ashBlue;
+  }
+}

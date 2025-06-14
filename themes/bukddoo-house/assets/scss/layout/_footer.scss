@@ -1,0 +1,37 @@
+.footer_container {
+  width: 100%;
+  max-width: $breakpoint-smallPC;
+  flex-grow: 1;
+  min-height: 8rem;
+  margin: 0 auto;
+  padding: $spacing-24;
+  color: $color-white;
+  background-color: $color-ashBlue;
+  border-left: 1px solid $color-lineGray;
+  border-right: 1px solid $color-lineGray;
+  .info {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: $spacing-8;
+    .copyright {
+      display: flex;
+      align-items: center;
+      gap: $spacing-16;
+      .privacy {
+        font-weight: 800;
+      }
+      .footer-icon-area {
+        display: flex;
+        align-items: center;
+        gap: $spacing-16;
+      }
+    }
+  }
+  .log {
+    width: 100%;
+    text-align: right;
+    opacity: 0.3;
+  }
+}

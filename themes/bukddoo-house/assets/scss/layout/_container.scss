@@ -1,13 +1,30 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  main {
+    flex: 0 0 auto;
+  }
+  footer {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+  }
+}
+
 .main-container {
   width: 100%;
   section {
     width: 100%;
     border-bottom: 1px solid $color-lineGray;
-    .inner-container {
-      width: 100%;
-      max-width: $breakpoint-smallPC;
-      margin: 0 auto;
-      background-color: $color-white;
-    }
   }
+}
+
+.inner-container {
+  width: 100%;
+  max-width: $breakpoint-smallPC;
+  margin: 0 auto;
+  background-color: $color-white;
+  border-left: 1px solid $color-lineGray;
+  border-right: 1px solid $color-lineGray;
 }

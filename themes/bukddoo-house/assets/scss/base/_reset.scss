@@ -7,14 +7,18 @@
 }
 
 html {
+  width: 100%;
   font-size: 16px;
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: rgba($color: #000000, $alpha: 0);
 }
 
 body {
-  line-height: 1;
+  width: 100%;
+  min-height: 100vh;
   font-size: 1rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
   font-family: $font-base;
   font-size: $font-size-base;
   color: $color-textBlack;
@@ -38,13 +42,31 @@ select,
 button {
   font: inherit;
   appearance: none;
+  background: none;
+  border: none;
+  outline: none;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
 
+input[type="search"]::-webkit-search-cancel-button {
+  appearance: none;
+  -webkit-appearance: none;
+  display: none;
+}
+
+input[type="search"]::-moz-search-clear {
+  display: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 button {
-  border: none;
-  background: none;
   cursor: pointer;
 }
 
