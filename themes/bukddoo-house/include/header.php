@@ -6,7 +6,13 @@
 
   <title>다 먹고 살자고 하는 짓이다 | BUKDDOO BLOG</title>
 
-  <meta property="og:title" content="<?php the_title(); ?> | BUKDDOO BLOG">
+  <meta property="og:title" content="<?php
+    if (is_front_page()) {
+        echo '다 먹고 살자고 하는 짓이다 | BUKDDOO BLOG';
+    } else {
+        echo get_the_title() . ' | BUKDDOO BLOG';
+    }
+?>">
   <meta property="og:description" content="<?php bloginfo('description'); ?>">
   <meta property="og:type" content="website">
   <meta property="og:url" content="<?php echo esc_url(get_permalink()); ?>">
@@ -26,7 +32,7 @@
         <div class="banner_container">
           다 먹고 살자고 하는 짓이다
           <div>
-            <img src="#" alt="character">
+            <img src="https://placehold.co/80" alt="character">
             뚜벅뚜벅
           </div>
         </div>
