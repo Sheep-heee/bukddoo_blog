@@ -22,5 +22,8 @@
   }
   a {
     color: $color-ashBlue;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

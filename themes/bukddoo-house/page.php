@@ -4,8 +4,26 @@
   <section>
     <article class="inner-container">
       <div class="contents_feed post">
-        <div class="six"></div>
-        <div class="four"></div>
+        <div class="six">
+          <h4>최신형 투덜거림</h4>
+          <div class="complaints-content">
+            <?php render_category_section("too-many-complaints", "large", 1, "main-large-list"); ?>
+          </div>
+        </div>
+        <div class="four">
+          <div class="life">
+            <h4>그냥 사는 사람의 근황</h4>
+            <div class="life-contents">
+              <?php render_category_section("just-life", "small", 2, "main-small-list"); ?>
+            </div>
+          </div>
+          <div class="media">
+            <h4>최근에 찍먹한 미디어</h4>
+            <div class="media-content">
+              <?php render_category_section("eat-a-snack", "small", 1, "main-small-list"); ?>
+            </div>
+          </div>
+        </div>
       </div>
     </article>
   </section>
@@ -15,32 +33,34 @@
         <div class="three">
           <?php $notice = get_latest_notice_data(); ?>
           <?php if ($notice): ?>
-            <article class="notice-post">
-              <h3>📌 내 거친 생각과 불안한 공지</h3>
-              <div class="notice-post-info">
-                <div class="notice-images">
-                  <?php
-                  $img_count = count($notice['images']);
-                  if ($img_count <= 4) {
-                    foreach ($notice['images'] as $img) {
-                      echo '<div class="image-wrap">' . $img . '</div>';
+            <a href="<?= esc_url($notice['permalink']) ?>">
+              <article class="notice-post">
+                <h3>📌 내 거친 생각과 불안한 공지</h3>
+                <div class="notice-post-info">
+                  <div class="notice-images">
+                    <?php
+                    $img_count = count($notice['images']);
+                    if ($img_count <= 4) {
+                      foreach ($notice['images'] as $img) {
+                        echo '<div class="image-wrap">' . $img . '</div>';
+                      }
+                    } else {
+                      for ($i = 0; $i < 3; $i++) {
+                        echo '<div class="image-wrap">' . $notice['images'][$i] . '</div>';
+                      }
+                      $remain = $img_count - 3;
+                      echo '<div class="image-wrap notice-image-box">+' . $remain . '</div>';
                     }
-                  } else {
-                    for ($i = 0; $i < 3; $i++) {
-                      echo '<div class="image-wrap">' . $notice['images'][$i] . '</div>';
-                    }
-                    $remain = $img_count - 3;
-                    echo '<a href="' . esc_url($notice['permalink']) . '" class="image-wrap"><div class="notice-image-box">+' . $remain . '</div></a>';
-                  }
-                  ?>
+                    ?>
+                  </div>
+                  <div class="notice-text">
+                    <h4 class="notice-title"><?= esc_html($notice['title']) ?></h4>
+                    <p class="notice-date"><?= esc_html($notice['date']) ?></p>
+                  </div>
+                  <p class="notice-excerpt"><?= esc_html($notice['excerpt']) ?></p>
                 </div>
-                <div class="notice-text">
-                  <a href="<?= esc_url($notice['permalink']) ?>"><h4 class="notice-title"><?= esc_html($notice['title']) ?></h4></a>
-                  <p class="notice-date"><?= esc_html($notice['date']) ?></p>
-                </div>
-                <p class="notice-excerpt"><?= esc_html($notice['excerpt']) ?></p>
-              </div>
-            </article>
+              </article>
+            </a>
           <?php endif; ?>
         </div>
         <div class="seven">

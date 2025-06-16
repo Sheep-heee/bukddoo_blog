@@ -9,6 +9,9 @@
   background-color: $color-ashBlue;
   border-left: 1px solid $color-lineGray;
   border-right: 1px solid $color-lineGray;
+  a:hover {
+    text-decoration: underline;
+  }
   .info {
     width: 100%;
     display: flex;

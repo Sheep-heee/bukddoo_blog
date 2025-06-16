@@ -1,57 +1,44 @@
 <?php
-function render_featured_category($cat_slug) {
+function render_category_section($cat_slug, $size = 'small', $limit = 2, $wrapper_class = '') {
   $cat = get_category_by_slug($cat_slug);
   if (!$cat) return;
 
   $q = new WP_Query([
     'category__in' => [$cat->term_id],
-    'posts_per_page' => 1,
+    'posts_per_page' => $limit,
     'post_status' => 'publish'
   ]);
 
-  if ($q->have_posts()) {
-    $q->the_post();
+  echo '<div class="' . esc_attr($wrapper_class) . '">';
 
-    // 본문 200자 잘라서 excerpt 만들기
-    $content = apply_filters('the_content', get_the_content());
-    $plain = wp_strip_all_tags($content);
-    $excerpt = mb_substr($plain, 0, 200) . (mb_strlen($plain) > 200 ? '...' : '');
-
-    echo '<section class="main-featured">';
-    get_template_part('template-parts/components/main-post-card', null, [
-      'size' => 'large',
-      'excerpt' => $excerpt
-    ]);
-    echo '</section>';
-  }
-  wp_reset_postdata();
-}
-
-function render_small_category_single($cat_slug) {
-  $cat = get_category_by_slug($cat_slug);
-  if (!$cat) return;
-
-  $q = new WP_Query([
-    'category__in' => [$cat->term_id],
-    'posts_per_page' => 1,
-    'post_status' => 'publish'
-  ]);
+  $found = 0;
 
   if ($q->have_posts()) {
-    $q->the_post();
+    while ($q->have_posts()) {
+      $q->the_post();
+      $content = apply_filters('the_content', get_the_content());
+      $plain = wp_strip_all_tags($content);
+      $excerpt = mb_substr($plain, 0, 200) . (mb_strlen($plain) > 200 ? '...' : '');
 
-    // 본문 200자 잘라서 excerpt 만들기
-    $content = apply_filters('the_content', get_the_content());
-    $plain = wp_strip_all_tags($content);
-    $excerpt = mb_substr($plain, 0, 200) . (mb_strlen($plain) > 200 ? '...' : '');
+      get_template_part('/components/main-post-card', null, [
+        'size' => $size,
+        'excerpt' => $excerpt
+      ]);
 
-    echo '<section class="main-featured">';
-    get_template_part('template-parts/components/main-post-card', null, [
-      'size' => 'small',
-      'excerpt' => $excerpt
-    ]);
-    echo '</section>';
+      $found++;
+    }
   }
+
+  // 빈 카드 채우기
+  if ($found < $limit) {
+    for ($i = $found; $i < $limit; $i++) {
+      echo '<article class="main-post-card is-empty">';
+      echo '<div class="empty-text">게시물이 없습니다</div>';
+      echo '</article>';
+    }
+  }
+
+  echo '</div>';
   wp_reset_postdata();
 }
 

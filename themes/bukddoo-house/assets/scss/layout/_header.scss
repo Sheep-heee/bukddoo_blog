@@ -47,7 +47,7 @@
         background-color: $color-ashBlue;
       }
       &:not(.active) {
-        transition: color 0.4s;
+        transition: color 0.4s ease;
       }
       &:not(.active):hover {
         color: $color-ashBlue;

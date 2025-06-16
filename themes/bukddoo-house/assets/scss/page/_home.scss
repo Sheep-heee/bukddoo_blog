@@ -6,6 +6,15 @@
     & > div {
       padding: $spacing-32;
     }
+    h4 {
+      color: $color-ashBlue;
+    }
+    img {
+      transition: transform 0.4s ease;
+    }
+    img:hover {
+      transform: scale(110%);
+    }
   }
   &.about {
     height: 15.9375rem;
@@ -27,11 +36,194 @@
     &:first-child {
       border-right: 1px solid $color-lineGray;
     }
+    .main-large-list,
+    .main-post-card.is-large,
+    .main-post-card.is-large a {
+      height: 100%;
+    }
     &.six {
+      width: 100%;
+      height: 100%;
       flex: 6;
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-8;
+      .complaints-content {
+        width: 100%;
+        height: 100%;
+        .thumb-wrap {
+          width: 100%;
+          height: 18.75rem;
+          margin-bottom: $spacing-24;
+          border-radius: $spacing-8;
+          overflow: hidden;
+          img {
+            object-fit: cover;
+          }
+        }
+        .post-contents-area {
+          width: 100%;
+          height: calc(100% - 18.75rem - 1.5rem);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .post-text {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-8;
+            .post-title {
+              font-size: 1.875rem;
+            }
+            .post-excerpt {
+              font-size: 0.9375;
+              line-height: 1.4;
+              line-clamp: 4;
+              display: -webkit-box;
+              -webkit-line-clamp: 4;
+              -webkit-box-orient: vertical;
+              text-overflow: ellipsis;
+              word-break: keep-all;
+            }
+          }
+          .post-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .meta-date {
+              font-size: 0.75rem;
+              color: $color-ashBlueGray;
+            }
+            .reaction {
+              display: flex;
+              justify-content: flex-end;
+              gap: $spacing-24;
+              color: $color-ashBlue;
+              .meta-icon {
+                display: flex;
+                gap: $spacing-4;
+                align-items: center;
+                font-size: 0.75rem;
+                font-weight: 800;
+                i {
+                  font-size: 1rem;
+                }
+              }
+            }
+          }
+        }
+      }
     }
     &.four {
+      width: 100%;
+      height: 100%;
       flex: 4;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      & > div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-8;
+        .life-contents,
+        .media-content {
+          width: 100%;
+          height: 100%;
+          .main-small-list {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-16;
+            .main-post-card {
+              width: 100%;
+              height: 8.375rem;
+              &.is-small a {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                gap: $spacing-16;
+                .thumb-wrap {
+                  width: 13.25rem;
+                  height: 100%;
+                  flex-shrink: 0;
+                  border-radius: $spacing-8;
+                  overflow: hidden;
+                  img {
+                    object-fit: cover;
+                  }
+                }
+                .post-contents-area {
+                  flex: 1;
+                  height: 100%;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                  .post-text {
+                    height: 100%;
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                    gap: $spacing-4;
+                    .post-title {
+                      font-size: 1.125rem;
+                    }
+                    .post-excerpt {
+                      font-size: 0.9375;
+                      line-height: 1.4;
+                      line-clamp: 3;
+                      display: -webkit-box;
+                      -webkit-line-clamp: 3;
+                      -webkit-box-orient: vertical;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      word-break: keep-all;
+                    }
+                  }
+                  .post-meta {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    .meta-date {
+                      font-size: 0.75rem;
+                      color: $color-ashBlueGray;
+                    }
+                    .reaction {
+                      display: flex;
+                      justify-content: flex-end;
+                      gap: $spacing-24;
+                      color: $color-ashBlue;
+                      .meta-icon {
+                        display: flex;
+                        align-items: center;
+                        gap: $spacing-4;
+                        font-size: 0.75rem;
+                        font-weight: 800;
+                        i {
+                          font-size: 1rem;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              &.is-empty {
+                width: 100%;
+                color: $color-ashBlueGray;
+                @include flex-center;
+              }
+            }
+          }
+        }
+      }
+      // .main-post-card.is-small a:hover {
+      //   & {
+      //     font-size: large;
+      //   }
+      // }
     }
     &.three {
       width: 100%;
@@ -43,6 +235,8 @@
         display: flex;
         flex-direction: column;
         gap: 0.625rem;
+        position: relative;
+        z-index: 1;
         .notice-post-info {
           display: flex;
           flex-direction: column;
@@ -57,14 +251,20 @@
               aspect-ratio: 1/1;
               overflow: hidden;
               border-radius: $spacing-8;
+              &:hover {
+                img {
+                  transform: scale(110%);
+                }
+              }
               img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+                transition: transform 0.4s ease;
               }
-              .notice-image-box {
-                width: 100%;
-                height: 100%;
+              &.notice-image-box {
+                width: 24%;
+                aspect-ratio: 1/1;
                 font-size: 0.875rem;
                 font-weight: 800;
                 background-color: $color-ashBlueLightGray;
@@ -142,7 +342,7 @@
             padding: $spacing-8 $spacing-16;
             border: 1px solid $color-textBlack;
             border-radius: $spacing-8;
-            transition: all 0.4s;
+            transition: all 0.4s ease;
             &:hover {
               background-color: $color-textBlack;
               color: $color-white;
