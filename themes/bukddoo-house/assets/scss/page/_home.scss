@@ -8,7 +8,7 @@
     }
   }
   &.about {
-    height: auto;
+    height: 15.9375rem;
     & > div {
       padding: $spacing-24;
     }
@@ -34,7 +34,67 @@
       flex: 4;
     }
     &.three {
+      width: 100%;
+      height: 100%;
       flex: 3;
+      .notice-post {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.625rem;
+        .notice-post-info {
+          display: flex;
+          flex-direction: column;
+          .notice-images {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: $spacing-16;
+            .image-wrap {
+              width: 24%;
+              aspect-ratio: 1/1;
+              overflow: hidden;
+              border-radius: $spacing-8;
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+              .notice-image-box {
+                width: 100%;
+                height: 100%;
+                font-size: 0.875rem;
+                font-weight: 800;
+                background-color: $color-ashBlueLightGray;
+                @include flex-center;
+              }
+            }
+          }
+          .notice-text {
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: $spacing-8;
+            .notice-date {
+              color: $color-ashBlueGray;
+            }
+          }
+          .notice-excerpt {
+            font-size: 0.875rem;
+            line-height: 1.4;
+            line-clamp: 3;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: keep-all;
+          }
+        }
+      }
     }
     &.seven {
       width: 100%;

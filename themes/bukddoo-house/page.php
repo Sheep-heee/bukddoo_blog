@@ -12,7 +12,37 @@
   <section>
     <article class="inner-container">
       <div class="contents_feed about">
-        <div class="three"></div>
+        <div class="three">
+          <?php $notice = get_latest_notice_data(); ?>
+          <?php if ($notice): ?>
+            <article class="notice-post">
+              <h3>📌 내 거친 생각과 불안한 공지</h3>
+              <div class="notice-post-info">
+                <div class="notice-images">
+                  <?php
+                  $img_count = count($notice['images']);
+                  if ($img_count <= 4) {
+                    foreach ($notice['images'] as $img) {
+                      echo '<div class="image-wrap">' . $img . '</div>';
+                    }
+                  } else {
+                    for ($i = 0; $i < 3; $i++) {
+                      echo '<div class="image-wrap">' . $notice['images'][$i] . '</div>';
+                    }
+                    $remain = $img_count - 3;
+                    echo '<a href="' . esc_url($notice['permalink']) . '" class="image-wrap"><div class="notice-image-box">+' . $remain . '</div></a>';
+                  }
+                  ?>
+                </div>
+                <div class="notice-text">
+                  <a href="<?= esc_url($notice['permalink']) ?>"><h4 class="notice-title"><?= esc_html($notice['title']) ?></h4></a>
+                  <p class="notice-date"><?= esc_html($notice['date']) ?></p>
+                </div>
+                <p class="notice-excerpt"><?= esc_html($notice['excerpt']) ?></p>
+              </div>
+            </article>
+          <?php endif; ?>
+        </div>
         <div class="seven">
           <div class="introduction">
             <div class="img-box no-bg">
