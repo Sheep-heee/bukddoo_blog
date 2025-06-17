@@ -297,12 +297,6 @@ table {
 .contents_feed.post h4 {
   color: #728cb0;
 }
-.contents_feed.post img {
-  transition: transform 0.4s ease;
-}
-.contents_feed.post img:hover {
-  transform: scale(110%);
-}
 .contents_feed.about {
   height: 15.9375rem;
 }
@@ -350,6 +344,13 @@ table {
 }
 .contents_feed > div.six .complaints-content .thumb-wrap img {
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.contents_feed > div.six .complaints-content .thumb-wrap:hover img {
+  transform: scale(110%);
+}
+.contents_feed > div.six .complaints-content .thumb-wrap:hover + .post-contents-area .post-text {
+  color: #728cb0;
 }
 .contents_feed > div.six .complaints-content .post-contents-area {
   width: 100%;
@@ -364,6 +365,7 @@ table {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  transition: color 0.4s ease;
 }
 .contents_feed > div.six .complaints-content .post-contents-area .post-text .post-title {
   font-size: 1.875rem;
@@ -402,6 +404,9 @@ table {
 }
 .contents_feed > div.six .complaints-content .post-contents-area .post-meta .reaction .meta-icon i {
   font-size: 1rem;
+}
+.contents_feed > div.six .complaints-content .post-contents-area:hover .post-text {
+  color: #728cb0;
 }
 .contents_feed > div.four {
   width: 100%;
@@ -453,6 +458,15 @@ table {
 .contents_feed > div.four > div .life-contents .main-small-list .main-post-card.is-small a .thumb-wrap img,
 .contents_feed > div.four > div .media-content .main-small-list .main-post-card.is-small a .thumb-wrap img {
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.contents_feed > div.four > div .life-contents .main-small-list .main-post-card.is-small a .thumb-wrap:hover img,
+.contents_feed > div.four > div .media-content .main-small-list .main-post-card.is-small a .thumb-wrap:hover img {
+  transform: scale(110%);
+}
+.contents_feed > div.four > div .life-contents .main-small-list .main-post-card.is-small a .thumb-wrap:hover + .post-contents-area .post-text,
+.contents_feed > div.four > div .media-content .main-small-list .main-post-card.is-small a .thumb-wrap:hover + .post-contents-area .post-text {
+  color: #728cb0;
 }
 .contents_feed > div.four > div .life-contents .main-small-list .main-post-card.is-small a .post-contents-area,
 .contents_feed > div.four > div .media-content .main-small-list .main-post-card.is-small a .post-contents-area {
@@ -469,6 +483,7 @@ table {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  transition: color 0.4s ease;
 }
 .contents_feed > div.four > div .life-contents .main-small-list .main-post-card.is-small a .post-contents-area .post-text .post-title,
 .contents_feed > div.four > div .media-content .main-small-list .main-post-card.is-small a .post-contents-area .post-text .post-title {
@@ -517,10 +532,17 @@ table {
 .contents_feed > div.four > div .media-content .main-small-list .main-post-card.is-small a .post-contents-area .post-meta .reaction .meta-icon i {
   font-size: 1rem;
 }
+.contents_feed > div.four > div .life-contents .main-small-list .main-post-card.is-small a .post-contents-area:hover .post-text,
+.contents_feed > div.four > div .media-content .main-small-list .main-post-card.is-small a .post-contents-area:hover .post-text {
+  color: #728cb0;
+}
 .contents_feed > div.four > div .life-contents .main-small-list .main-post-card.is-empty,
 .contents_feed > div.four > div .media-content .main-small-list .main-post-card.is-empty {
   width: 100%;
   color: #8890a3;
+  background-color: #EFEFEF;
+  border-radius: 0.5rem;
+  cursor: default;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -556,14 +578,14 @@ table {
   overflow: hidden;
   border-radius: 0.5rem;
 }
-.contents_feed > div.three .notice-post .notice-post-info .notice-images .image-wrap:hover img {
-  transform: scale(110%);
-}
 .contents_feed > div.three .notice-post .notice-post-info .notice-images .image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
+}
+.contents_feed > div.three .notice-post .notice-post-info .notice-images .image-wrap:hover img {
+  transform: scale(110%);
 }
 .contents_feed > div.three .notice-post .notice-post-info .notice-images .image-wrap.notice-image-box {
   width: 24%;
@@ -575,6 +597,9 @@ table {
   justify-content: center;
   align-items: center;
 }
+.contents_feed > div.three .notice-post .notice-post-info .notice-images:hover + .notice-text .notice-title, .contents_feed > div.three .notice-post .notice-post-info .notice-images:hover + .notice-excerpt {
+  color: #728cb0;
+}
 .contents_feed > div.three .notice-post .notice-post-info .notice-text {
   font-size: 0.875rem;
   display: flex;
@@ -582,8 +607,20 @@ table {
   justify-content: space-between;
   margin-bottom: 0.5rem;
 }
+.contents_feed > div.three .notice-post .notice-post-info .notice-text .notice-title {
+  transition: color 0.4s ease;
+}
 .contents_feed > div.three .notice-post .notice-post-info .notice-text .notice-date {
   color: #8890a3;
+}
+.contents_feed > div.three .notice-post .notice-post-info .notice-text:hover .notice-title {
+  color: #728cb0;
+}
+.contents_feed > div.three .notice-post .notice-post-info .notice-text:hover + .notice-excerpt {
+  color: #728cb0;
+}
+.contents_feed > div.three .notice-post .notice-post-info .notice-text.excerpt-hover .notice-title {
+  color: #728cb0;
 }
 .contents_feed > div.three .notice-post .notice-post-info .notice-excerpt {
   font-size: 0.875rem;
@@ -595,6 +632,10 @@ table {
   overflow: hidden;
   text-overflow: ellipsis;
   word-break: keep-all;
+  transition: color 0.4s ease;
+}
+.contents_feed > div.three .notice-post .notice-post-info .notice-excerpt:hover {
+  color: #728cb0;
 }
 .contents_feed > div.seven {
   width: 100%;

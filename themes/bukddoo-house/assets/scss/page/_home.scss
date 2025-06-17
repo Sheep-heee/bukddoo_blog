@@ -9,12 +9,6 @@
     h4 {
       color: $color-ashBlue;
     }
-    img {
-      transition: transform 0.4s ease;
-    }
-    img:hover {
-      transform: scale(110%);
-    }
   }
   &.about {
     height: 15.9375rem;
@@ -59,6 +53,15 @@
           overflow: hidden;
           img {
             object-fit: cover;
+            transition: transform 0.4s ease;
+          }
+          &:hover {
+            img {
+              transform: scale(110%);
+            }
+            & + .post-contents-area .post-text {
+              color: $color-ashBlue;
+            }
           }
         }
         .post-contents-area {
@@ -73,6 +76,7 @@
             display: flex;
             flex-direction: column;
             gap: $spacing-8;
+            transition: color 0.4s ease;
             .post-title {
               font-size: 1.875rem;
             }
@@ -110,6 +114,11 @@
                   font-size: 1rem;
                 }
               }
+            }
+          }
+          &:hover {
+            .post-text {
+              color: $color-ashBlue;
             }
           }
         }
@@ -153,6 +162,15 @@
                   overflow: hidden;
                   img {
                     object-fit: cover;
+                    transition: transform 0.4s ease;
+                  }
+                  &:hover {
+                    img {
+                      transform: scale(110%);
+                    }
+                    & + .post-contents-area .post-text {
+                      color: $color-ashBlue;
+                    }
                   }
                 }
                 .post-contents-area {
@@ -167,6 +185,7 @@
                     display: flex;
                     flex-direction: column;
                     gap: $spacing-4;
+                    transition: color 0.4s ease;
                     .post-title {
                       font-size: 1.125rem;
                     }
@@ -208,11 +227,19 @@
                       }
                     }
                   }
+                  &:hover {
+                  .post-text {
+                    color: $color-ashBlue;
+                    }
+                  }
                 }
               }
               &.is-empty {
                 width: 100%;
                 color: $color-ashBlueGray;
+                background-color: #EFEFEF;
+                border-radius: $spacing-8;
+                cursor: default;
                 @include flex-center;
               }
             }
@@ -251,16 +278,16 @@
               aspect-ratio: 1/1;
               overflow: hidden;
               border-radius: $spacing-8;
-              &:hover {
-                img {
-                  transform: scale(110%);
-                }
-              }
               img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
                 transition: transform 0.4s ease;
+              }
+              &:hover {
+                img {
+                  transform: scale(110%);
+                }
               }
               &.notice-image-box {
                 width: 24%;
@@ -271,6 +298,11 @@
                 @include flex-center;
               }
             }
+            &:hover {
+              & + .notice-text .notice-title, & + .notice-excerpt {
+                color: $color-ashBlue;
+              }
+            }
           }
           .notice-text {
             font-size: 0.875rem;
@@ -278,8 +310,24 @@
             align-items: center;
             justify-content: space-between;
             margin-bottom: $spacing-8;
+            .notice-title {
+              transition: color 0.4s ease;
+            }
             .notice-date {
               color: $color-ashBlueGray;
+            }
+            &:hover {
+              .notice-title {
+                color: $color-ashBlue;
+              }
+              & + .notice-excerpt {
+                color: $color-ashBlue;
+              }
+            }
+            &.excerpt-hover {
+              .notice-title {
+                color: $color-ashBlue;
+              }
             }
           }
           .notice-excerpt {
@@ -292,6 +340,10 @@
             overflow: hidden;
             text-overflow: ellipsis;
             word-break: keep-all;
+            transition: color 0.4s ease;
+            &:hover {
+              color: $color-ashBlue;
+            }
           }
         }
       }

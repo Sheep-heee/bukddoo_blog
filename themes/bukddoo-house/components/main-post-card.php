@@ -14,7 +14,7 @@ if ($size === 'small') $card_class .= ' is-small';
   <a href="<?= esc_url(get_permalink()); ?>">
     <?php if (has_post_thumbnail()) : ?>
       <div class="thumb-wrap">
-        <?php the_post_thumbnail('large'); ?>
+        <?php the_post_thumbnail('large', ['alt' => get_the_title()]); ?>
       </div>
     <?php endif; ?>
 
