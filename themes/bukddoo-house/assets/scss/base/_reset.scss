@@ -24,6 +24,19 @@ body {
   font-size: $font-size-base;
   color: $color-textBlack;
   background-color: $color-bgBeige;
+  cursor: url(/wp-content/themes/bukddoo-house/assets/images/cursor-default-40.cur),
+    auto;
+  a,
+  button {
+    cursor: url(/wp-content/themes/bukddoo-house/assets/images/cursor-pointer-big-40.cur),
+      pointer !important;
+  }
+  input[type="text"],
+  input[type="search"],
+  textarea {
+    cursor: url(/wp-content/themes/bukddoo-house/assets/images/cursor-text-40.cur),
+      text !important;
+  }
 }
 
 ul,

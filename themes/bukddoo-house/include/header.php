@@ -50,8 +50,8 @@
           </ul>
           <form role="search" method="get" class="search-form" action="<?php echo home_url('/'); ?>">
             <div class="search-input-box">
-              <input type="search" name="s" placeholder="뭘 찾고 있나요?" value="<?php echo is_search() ? get_search_query() : ''; ?>" />
-              <button type="button" class="clear-btn"><i class="fa-solid fa-circle-xmark"></i></button>
+              <input type="search" name="s" id="searchInput" placeholder="뭘 찾고 있나요?" value="<?php echo is_search() ? get_search_query() : ''; ?>" />
+              <button type="button" id="clearButton" class="clear-btn"><i class="fa-solid fa-circle-xmark"></i></button>
             </div>
             <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>

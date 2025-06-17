@@ -228,8 +228,8 @@
                     }
                   }
                   &:hover {
-                  .post-text {
-                    color: $color-ashBlue;
+                    .post-text {
+                      color: $color-ashBlue;
                     }
                   }
                 }
@@ -237,20 +237,14 @@
               &.is-empty {
                 width: 100%;
                 color: $color-ashBlueGray;
-                background-color: #EFEFEF;
+                background-color: #efefef;
                 border-radius: $spacing-8;
-                cursor: default;
                 @include flex-center;
               }
             }
           }
         }
       }
-      // .main-post-card.is-small a:hover {
-      //   & {
-      //     font-size: large;
-      //   }
-      // }
     }
     &.three {
       width: 100%;
@@ -299,7 +293,8 @@
               }
             }
             &:hover {
-              & + .notice-text .notice-title, & + .notice-excerpt {
+              & + .notice-text .notice-title,
+              & ~ .notice-excerpt {
                 color: $color-ashBlue;
               }
             }

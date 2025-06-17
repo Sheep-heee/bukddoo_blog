@@ -48,6 +48,16 @@ body {
   font-size: 1rem;
   color: #2f2f2f;
   background-color: #e6e1e3;
+  cursor: url(/wp-content/themes/bukddoo-house/assets/images/cursor-default-40.cur), auto;
+}
+body a,
+body button {
+  cursor: url(/wp-content/themes/bukddoo-house/assets/images/cursor-pointer-big-40.cur), pointer !important;
+}
+body input[type=text],
+body input[type=search],
+body textarea {
+  cursor: url(/wp-content/themes/bukddoo-house/assets/images/cursor-text-40.cur), text !important;
 }
 
 ul,
@@ -540,9 +550,8 @@ table {
 .contents_feed > div.four > div .media-content .main-small-list .main-post-card.is-empty {
   width: 100%;
   color: #8890a3;
-  background-color: #EFEFEF;
+  background-color: #efefef;
   border-radius: 0.5rem;
-  cursor: default;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -597,7 +606,7 @@ table {
   justify-content: center;
   align-items: center;
 }
-.contents_feed > div.three .notice-post .notice-post-info .notice-images:hover + .notice-text .notice-title, .contents_feed > div.three .notice-post .notice-post-info .notice-images:hover + .notice-excerpt {
+.contents_feed > div.three .notice-post .notice-post-info .notice-images:hover + .notice-text .notice-title, .contents_feed > div.three .notice-post .notice-post-info .notice-images:hover ~ .notice-excerpt {
   color: #728cb0;
 }
 .contents_feed > div.three .notice-post .notice-post-info .notice-text {
