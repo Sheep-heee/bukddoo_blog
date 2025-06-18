@@ -32,13 +32,11 @@ function render_category_section($cat_slug, $size = 'small', $limit = 2, $wrappe
   // 빈 카드 채우기
   if ($found < $limit) {
     for ($i = $found; $i < $limit; $i++) {
-      echo '<article class="main-post-card is-empty">';
-      echo '<div class="empty-text">게시물이 없습니다</div>';
-      echo '</article>';
+      get_template_part('components/no-post-message');
     }
   }
-
   echo '</div>';
+
   wp_reset_postdata();
 }
 

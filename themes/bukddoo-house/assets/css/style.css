@@ -556,16 +556,6 @@ table {
 .contents_feed > div.four > div .media-content .main-small-list .main-post-card.is-small a .post-contents-area:hover .post-text {
   color: #728cb0;
 }
-.contents_feed > div.four > div .life-contents .main-small-list .main-post-card.is-empty,
-.contents_feed > div.four > div .media-content .main-small-list .main-post-card.is-empty {
-  width: 100%;
-  color: #8890a3;
-  background-color: #efefef;
-  border-radius: 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .contents_feed > div.three {
   width: 100%;
   height: 100%;
@@ -741,4 +731,33 @@ table {
 }
 .privacy-container a:hover {
   text-decoration: underline;
+}
+
+.is-empty {
+  width: 100%;
+  background-color: #efefef;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.is-empty .no-post {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.is-empty .no-post .no-post-icon {
+  width: 20%;
+  height: auto;
+}
+.is-empty .no-post .no-post-icon img {
+  object-fit: contain;
+}
+.is-empty .no-post .no-post-text {
+  display: flex;
+  align-items: center;
+  color: #8890a3;
 }
