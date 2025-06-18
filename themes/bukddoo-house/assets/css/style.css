@@ -145,6 +145,10 @@ table {
   width: 100%;
   border-bottom: 1px solid #5c5f66;
 }
+.main-container:has(main, aside) {
+  display: flex;
+  border-bottom: 1px solid #5c5f66;
+}
 
 .inner-container {
   width: 100%;
@@ -292,6 +296,12 @@ table {
   width: 100%;
   text-align: right;
   opacity: 0.3;
+}
+
+.right-panel {
+  width: 25rem;
+  height: 100%;
+  background-color: #f4f6f9;
 }
 
 .contents_feed {

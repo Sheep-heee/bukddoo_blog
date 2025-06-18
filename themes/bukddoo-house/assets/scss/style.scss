@@ -6,11 +6,17 @@
 @import "layout/container";
 @import "layout/header";
 @import "layout/footer";
+@import "layout/sidebar";
+@import "page/category-work-roughly";
 @import "page/category";
 @import "page/home";
 @import "page/search";
 @import "page/single";
 @import "page/privacy";
-@import "components/block";
-@import "components/button";
 @import "components/card";
+@import "components/comment";
+@import "components/empty";
+@import "components/no-post";
+@import "components/sidebar-filter";
+@import "components/widget";
+

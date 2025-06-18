@@ -18,6 +18,10 @@
     width: 100%;
     border-bottom: 1px solid $color-lineGray;
   }
+  &:has(main, aside){
+    display: flex;
+    border-bottom: 1px solid $color-lineGray;
+  }
 }
 
 .inner-container {

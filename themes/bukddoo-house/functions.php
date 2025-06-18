@@ -11,4 +11,4 @@ add_action('after_setup_theme', function() {
   add_theme_support('post-thumbnails');
 });
 
-require get_template_directory() . '/include/main-data-functions.php';
+require get_template_directory() . '/functions/main-data-functions.php';
