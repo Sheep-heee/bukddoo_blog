@@ -21,6 +21,15 @@
   &:has(main, aside){
     display: flex;
     border-bottom: 1px solid $color-lineGray;
+    .inner-container {
+      display: flex;
+      .contents-container {
+        flex: 1;
+      }
+      .right-panel {
+        flex-shrink: 0;
+      }
+    }
   }
 }
 

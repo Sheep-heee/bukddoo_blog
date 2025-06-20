@@ -149,6 +149,15 @@ table {
   display: flex;
   border-bottom: 1px solid #5c5f66;
 }
+.main-container:has(main, aside) .inner-container {
+  display: flex;
+}
+.main-container:has(main, aside) .inner-container .contents-container {
+  flex: 1;
+}
+.main-container:has(main, aside) .inner-container .right-panel {
+  flex-shrink: 0;
+}
 
 .inner-container {
   width: 100%;
@@ -301,6 +310,7 @@ table {
 .right-panel {
   width: 25rem;
   height: 100%;
+  float: right;
   background-color: #f4f6f9;
 }
 
