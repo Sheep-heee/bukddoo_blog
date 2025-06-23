@@ -24,6 +24,8 @@ body {
   font-size: $font-size-base;
   color: $color-textBlack;
   background-color: $color-bgBeige;
+  position: relative;
+  overflow: hidden;
   cursor: url(/wp-content/themes/bukddoo-house/assets/images/cursor-default-40.cur),
     auto;
   a,
@@ -36,6 +38,20 @@ body {
   textarea {
     cursor: url(/wp-content/themes/bukddoo-house/assets/images/cursor-text-40.cur),
       text !important;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200vw;
+    height: 200vh;
+    background-image: url("/wp-content/themes/bukddoo-house/assets/images/common/bg_ddooddoo.svg");
+    background-repeat: repeat;
+    background-size: 14.125rem;
+    transform: translate(-50%, -50%) rotate(45deg);
+    opacity: 0.2;
+    z-index: -1;
   }
 }
 

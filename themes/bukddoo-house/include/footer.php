@@ -1,5 +1,5 @@
-  <footer class="main-container">
-    <div class="footer_container">
+  <footer>
+    <div class="inner">
       <div class="info">
         <div class="copyright">
           &copy;&nbsp;<?= date("Y"); ?>.&nbsp;벅뚜
@@ -17,14 +17,13 @@
           </div>
         <span class="slogan">
             규칙적인 식사와 적정 수면 시간, 철저한 위생 관리가 인간을 인간답게 만든다.
-          </span>
+        </span>
       </div>
       <div class="log">
         <a href="/category/i-have-to-update">v 1.0.0 (250600 release)</a>
       </div>
     </div>
   </footer>
-  </div>
   <?php wp_footer(); ?>
 </body>
 </html>

@@ -1,100 +1,97 @@
-.banner_container {
+header {
   width: 100%;
-  height: 14rem;
-  padding: $spacing-24;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  font-size: 1.25rem;
-  font-weight: 800;
-  background-image: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0.5) 15%,
-      rgba(255, 255, 255, 0) 100%
-    ),
-    url("/wp-content/themes/bukddoo-house/assets/images/common/main-banner.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  div {
-    width: 5rem;
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    img {
-      width: 100%;
-      height: 5rem;
-      object-fit: contain;
-    }
-  }
-}
-
-.nav-container {
-  width: 100%;
-  padding: $spacing-16;
-  position: relative;
+  height: 4.25rem;
   @include flex-center;
-  .nav-list {
-    display: flex;
-    gap: $spacing-32;
-    li {
-      font-weight: 800;
-      padding: $spacing-8 $spacing-16;
-      border-radius: $spacing-8;
-      &.active {
-        color: $color-white;
-        background-color: $color-ashBlue;
-      }
-      &:not(.active) {
-        transition: color 0.4s ease;
-      }
-      &:not(.active):hover {
-        color: $color-ashBlue;
+  .inner {
+    height: 100%;
+    background-color: $color-white;
+    padding: 0 1rem;
+    border-left: $line;
+    border-right: $line;
+    border-bottom: $line;
+    @include flex-center;
+    position: relative;
+    .img-box {
+      width: 2.25rem;
+      height: 2.25rem;
+      position: absolute;
+      top: 50%;
+      left: $spacing-16;
+      transform: translateY(-50%);
+      a {
+        width: 100%;
+        height: 100%;
+        img {
+          height: 100%;
+        }
       }
     }
-  }
-  .search-form {
-    width: 10rem;
-    height: 2.25rem;
-    position: absolute;
-    top: 50%;
-    right: $spacing-16;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 $spacing-16;
-    background-color: $color-ashBlueLightGray;
-    border-radius: $spacing-8;
-    .search-input-box {
-      width: 100%;
+    .navigation-bar {
+      height: 100%;
+      @include flex-center;
+      .nav-list {
+        height: 100%;
+        @include flex-center;
+        gap: $spacing-24;
+        li {
+          font-weight: 800;
+          padding: $spacing-8 $spacing-16;
+          border-radius: $spacing-8;
+          &.active {
+            background-color: $color-ashBlue;
+            color: $color-white;
+          }
+          &:not(.active) {
+            transition: color 0.4s ease;
+          }
+          &:not(.active):hover {
+            color: $color-ashBlue;
+          }
+        }
+      }
+    }
+    .search-form {
+      width: 14rem;
+      height: 2.25rem;
+      position: absolute;
+      top: 50%;
+      right: $spacing-16;
+      transform: translateY(-50%);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      input[type="search"] {
-        width: calc(100% - 1rem);
-        font-size: 0.875rem;
-        &::placeholder {
+      padding: 0 $spacing-16;
+      background-color: $color-ashBlueLightGray;
+      border-radius: $spacing-8;
+      .search-input-box {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        input[type="search"] {
+          width: calc(100% - 1rem);
           font-size: 0.875rem;
+          &::placeholder {
+            font-size: 0.875rem;
+            color: $color-ashBlueGray;
+            line-height: 1;
+            letter-spacing: -0.02em;
+          }
+          &:not(:placeholder-shown) + button.clear-btn {
+            display: block;
+          }
+        }
+        button.clear-btn {
+          font-size: 0.75rem;
           color: $color-ashBlueGray;
-          line-height: 1;
-          letter-spacing: -0.02em;
-        }
-        &:not(:placeholder-shown) + button.clear-btn {
-          display: block;
+          margin-right: $spacing-8;
+          display: none;
         }
       }
-      button.clear-btn {
-        font-size: 0.75rem;
-        color: $color-ashBlueGray;
-        margin-right: $spacing-8;
-        display: none;
+      button[type="submit"] {
+        width: 1rem;
+        height: 1rem;
       }
-    }
-    button[type="submit"] {
-      width: 1rem;
-      height: 1rem;
     }
   }
 }
