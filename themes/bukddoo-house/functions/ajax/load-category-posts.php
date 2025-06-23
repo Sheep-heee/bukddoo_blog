@@ -25,7 +25,7 @@ function bukddoo_ajax_load_more_category_posts() {
       get_template_part('components/list-post-card');
     }
   } else {
-    echo '<div class="no-post">불러올 게시글이 없습니다.</div>';
+    get_template_part('components/no-post-message');
   }
 
   wp_die();
