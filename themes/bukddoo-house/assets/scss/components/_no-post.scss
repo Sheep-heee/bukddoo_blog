@@ -1,7 +1,6 @@
 .is-empty {
   width: 100%;
   background-color: #efefef;
-  border-radius: $spacing-8;
   @include flex-center;
   .no-post {
     width: 60%;

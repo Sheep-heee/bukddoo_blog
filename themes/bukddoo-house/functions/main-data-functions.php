@@ -1,43 +1,29 @@
 <?php
-function render_category_section($cat_slug, $size = 'small', $limit = 2, $wrapper_class = '') {
-  $cat = get_category_by_slug($cat_slug);
-  if (!$cat) return;
+function get_survival_tip_count() {
+  $cached = get_transient('bukddoo_survival_tip_count');
+  if ($cached !== false) return $cached;
 
-  $q = new WP_Query([
-    'category__in' => [$cat->term_id],
-    'posts_per_page' => $limit,
+  $target_categories = array('too-many-complaints', 'just-life', 'eat-a-snack');
+
+  $cat_ids = array_map(function($slug) {
+    $cat = get_category_by_slug($slug);
+    return $cat ? $cat->term_id : null;
+  }, $target_categories);
+
+  $cat_ids = array_filter($cat_ids);
+
+  $args = array(
+    'post_type' => 'post',
+    'posts_per_page' => -1,
+    'category__in' => $cat_ids,
+    'fields' => 'ids',
     'post_status' => 'publish'
-  ]);
+  );
 
-  echo '<div class="' . esc_attr($wrapper_class) . '">';
-
-  $found = 0;
-
-  if ($q->have_posts()) {
-    while ($q->have_posts()) {
-      $q->the_post();
-      $content = apply_filters('the_content', get_the_content());
-      $plain = wp_strip_all_tags($content);
-      $excerpt = mb_substr($plain, 0, 200) . (mb_strlen($plain) > 200 ? '...' : '');
-
-      get_template_part('/components/main-post-card', null, [
-        'size' => $size,
-        'excerpt' => $excerpt
-      ]);
-
-      $found++;
-    }
-  }
-
-  // 빈 카드 채우기
-  if ($found < $limit) {
-    for ($i = $found; $i < $limit; $i++) {
-      get_template_part('components/no-post-message');
-    }
-  }
-  echo '</div>';
-
-  wp_reset_postdata();
+  $query = new WP_Query($args);
+  $result = ($total_posts < 101) ? 101 : $total_posts;
+  set_transient('bukddoo_survival_tip_count', $result, HOUR_IN_SECONDS);
+  return $result;
 }
 
 function get_latest_notice_data($cat_slug = 'notice-on-edge') {
@@ -68,3 +54,44 @@ function get_latest_notice_data($cat_slug = 'notice-on-edge') {
   wp_reset_postdata();
   return $data;
 }
+
+function render_category_section($cat_slug, $size = 'small', $limit = 2) {
+  $cat = get_category_by_slug($cat_slug);
+  if (!$cat) return;
+
+  $q = new WP_Query([
+    'category__in' => [$cat->term_id],
+    'posts_per_page' => $limit,
+    'post_status' => 'publish'
+  ]);
+
+  $found = 0;
+
+  if ($q->have_posts()) {
+    while ($q->have_posts()) {
+      $q->the_post();
+      $content = apply_filters('the_content', get_the_content());
+      $plain = wp_strip_all_tags($content);
+      $excerpt = mb_substr($plain, 0, 200) . (mb_strlen($plain) > 200 ? '...' : '');
+
+      get_template_part('/components/main-post-card', null, [
+        'size' => $size,
+        'excerpt' => $excerpt
+      ]);
+
+      $found++;
+    }
+  }
+
+  
+  if ($found < $limit) {
+    for ($i = $found; $i < $limit; $i++) {
+      get_template_part('components/no-post-message');
+    }
+  }
+
+  wp_reset_postdata();
+}
+
+
+

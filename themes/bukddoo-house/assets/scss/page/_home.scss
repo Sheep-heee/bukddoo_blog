@@ -1,6 +1,7 @@
 .inner {
   display: flex;
   flex-direction: column;
+  background-color: $color-textBlack;
   section {
     width: 100%;
     background-color: $color-white;
@@ -26,6 +27,21 @@
         background-color: $color-textBlack;
         color: $color-white;
       }
+      .more-link-btn {
+        font-size: 0.875rem;
+        font-weight: 800;
+        padding: $spacing-4 $spacing-16;
+        border: 1px solid $color-textBlack;
+        border-radius: 999px;
+        background-color: $color-white;
+        display: flex;
+        gap: $spacing-4;
+        transition: all 0.4s ease;
+        &:hover {
+          color: $color-white;
+          background-color: $color-textBlack;
+        }
+      }
     }
     &.intro-notice {
       height: 17.875rem;
@@ -36,16 +52,216 @@
         display: flex;
         flex-direction: column;
         .rice-banner {
+          width: 100%;
           height: 11.75rem;
           border-bottom: $line;
+          padding: $spacing-24;
+          display: flex;
+          align-items: flex-end;
+          justify-content: space-between;
+          font-size: 1.25rem;
+          font-weight: 800;
+          background-image: linear-gradient(
+              to right,
+              rgba(255, 255, 255, 0.5) 15%,
+              rgba(255, 255, 255, 0) 100%
+            ),
+            url("/wp-content/themes/bukddoo-house/assets/images/common/main-banner.jpg");
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          div {
+            width: 4.375rem;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            img {
+              width: 100%;
+              height: 4.375rem;
+              object-fit: contain;
+            }
+          }
         }
         .one-word-banner {
           height: calc(100% - 11.75rem);
+          display: flex;
+          align-items: center;
+          gap: $spacing-8;
+          padding: $spacing-24;
+          i {
+            font-size: 2rem;
+          }
+          .main-word {
+            display: flex;
+            align-items: flex-end;
+            gap: $spacing-4;
+            font-weight: 800;
+            .large-word {
+              font-size: 2.5rem;
+            }
+          }
         }
       }
       .notice {
         width: calc(100% - 58.25rem);
         height: 100%;
+        padding: $spacing-32;
+        background-color: $color-white;
+        @include flex-center;
+        box-shadow: 0 0 0 $color-lineGray inset;
+        @include block-transition;
+        .notice-post {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .notice-title {
+            width: fit-content;
+            height: fit-content;
+            position: relative;
+            h3 {
+              font-size: 1.25rem;
+              font-weight: 800;
+              position: relative;
+              z-index: 1;
+            }
+            .marker {
+              width: 100%;
+              height: 0.625rem;
+              background-color: $color-yellow;
+              position: absolute;
+              bottom: 0;
+              left: 0;
+            }
+          }
+          .notice-post-info {
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-16;
+            .notice-images {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              .image-wrap {
+                width: 24%;
+                aspect-ratio: 1/1;
+                overflow: hidden;
+                border-radius: $spacing-8;
+                img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+                &.notice-image-box {
+                  width: 24%;
+                  aspect-ratio: 1/1;
+                  font-size: 0.875rem;
+                  font-weight: 800;
+                  background-color: $color-ashBlueLightGray;
+                  @include flex-center;
+                }
+              }
+            }
+            .notice-text {
+              display: flex;
+              flex-direction: column;
+              gap: $spacing-8;
+              .notice-post-title-area {
+                font-size: 0.875rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .notice-title {
+                  font-weight: 800;
+                }
+                .notice-date {
+                  color: $color-ashBlueGray;
+                }
+              }
+              .notice-excerpt {
+                font-size: 0.875rem;
+                @include excerpt-text;
+                line-clamp: 4;
+                -webkit-line-clamp: 4;
+              }
+            }
+          }
+        }
+        &:hover {
+          @include block-hover-effect;
+        }
+      }
+    }
+    .main-post-card {
+      width: 100%;
+      height: 100%;
+      padding: $spacing-32;
+      @include block-transition;
+      &:not(.is-empty):hover {
+        @include block-hover-effect;
+      }
+      a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        .thumb-wrap {
+          width: 100%;
+          border-radius: $spacing-8;
+          overflow: hidden;
+          img {
+          object-fit: cover;
+          }
+        }
+        .post-contents-area {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          flex: 1;
+          .post-text {
+            display: flex;
+            flex-direction: column;
+            .post-title {
+              font-weight: 800;
+            }
+            .post-excerpt {
+                font-size: 0.9375rem;
+                @include excerpt-text;
+                line-clamp: 3;
+                -webkit-line-clamp: 3;
+            }
+          }
+          .post-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .meta-date {
+              font-size: 0.75rem;
+              color: $color-ashBlueGray;
+            }
+            .reaction {
+              display: flex;
+              justify-content: flex-end;
+              gap: $spacing-24;
+              color: $color-ashBlue;
+              .meta-icon {
+                display: flex;
+                gap: $spacing-4;
+                align-items: center;
+                font-size: 0.75rem;
+                font-weight: 800;
+                i {
+                  font-size: 1rem;
+                }
+              }
+            }
+          }
+        }
       }
     }
     &.latest-post {
@@ -54,15 +270,48 @@
       .complaints {
         width: 36.5rem;
         height: 100%;
+        .is-large {
+          height: calc(100% - 3.875rem);
+          a {
+            flex-direction: column;
+            gap: $spacing-32;
+            .thumb-wrap {
+              width: 100%;
+              height: 24.25rem;
+            }
+            .post-contents-area .post-text {
+              gap: $spacing-16;
+              .post-title {
+                font-size: 1.875rem;
+              }
+            }
+          }
+        }
       }
       .life {
         width: calc(100% - 36.5rem);
         height: 100%;
         article {
+          width: 100%;
           height: calc((100% - 7.75rem) / 3);
           border-bottom: $line;
           &:last-child {
             border-bottom: 0;
+          }
+          &.main-post-card.is-small {
+            a {
+              gap: $spacing-16;
+              .thumb-wrap {
+                width: 17.75rem;
+                height: 8.375rem;
+              }
+              .post-contents-area .post-text {
+                gap: $spacing-4;
+                .post-title {
+                  font-size: 1.125rem;
+                }
+              }
+            }
           }
         }
       }

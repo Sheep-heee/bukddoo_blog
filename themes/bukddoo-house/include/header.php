@@ -34,11 +34,11 @@
       </div>
       <nav class="navigation-bar">
         <ul class="nav-list">
-          <li class="<?php if ( is_front_page() ) echo 'active'; ?>"><a href="<?php echo home_url(); ?>">HOME</a></li>
-          <li class="<?php if ( is_category('too-many-complaints') ) echo 'active'; ?>"><a href="<?php echo get_category_link( get_category_by_slug('too-many-complaints')->term_id ); ?>">방구석 투덜이</a></li>
-          <li class="<?php if ( is_category('just-life') ) echo 'active'; ?>"><a href="<?php echo get_category_link( get_category_by_slug('just-life')->term_id ); ?>">그냥 사는 얘기</a></li>
-          <li class="<?php if ( is_category('eat-a-snack') ) echo 'active'; ?>"><a href="<?php echo get_category_link( get_category_by_slug('eat-a-snack')->term_id ); ?>">미디어 리뷰</a></li>
-          <li class="<?php if ( is_category('work-roughly') ) echo 'active'; ?>"><a href="<?php echo get_category_link( get_category_by_slug('work-roughly')->term_id ); ?>">WORK</a></li>
+          <a href="<?php echo home_url(); ?>"><li class="<?php if ( is_front_page() ) echo 'active'; ?>">HOME</li></a>
+          <a href="<?php echo get_category_link( get_category_by_slug('too-many-complaints')->term_id ); ?>"><li class="<?php if ( is_category('too-many-complaints') ) echo 'active'; ?>">방구석 투덜이</li></a>
+          <a href="<?php echo get_category_link( get_category_by_slug('just-life')->term_id ); ?>"><li class="<?php if ( is_category('just-life') ) echo 'active'; ?>">그냥 사는 얘기</li></a>
+          <a href="<?php echo get_category_link( get_category_by_slug('eat-a-snack')->term_id ); ?>"><li class="<?php if ( is_category('eat-a-snack') ) echo 'active'; ?>">미디어 리뷰</li></a>
+          <a href="<?php echo get_category_link( get_category_by_slug('work-roughly')->term_id ); ?>"><li class="<?php if ( is_category('work-roughly') ) echo 'active'; ?>">WORK</li></a>
         </ul>
       </nav>
       <form role="search" method="get" class="search-form" action="<?php echo home_url('/'); ?>">

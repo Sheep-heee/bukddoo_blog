@@ -9,16 +9,3 @@ clearBtn.addEventListener("click", () => {
   input.value = "";
   input.focus();
 });
-
-document.addEventListener("DOMContentLoaded", () => {
-  const title = document.querySelector(".notice-text");
-  const excerpt = document.querySelector(".notice-excerpt");
-
-  if (excerpt && title)
-    excerpt.addEventListener("mouseenter", () => {
-      title.classList.add("excerpt-hover");
-    });
-  excerpt.addEventListener("mouseleave", () => {
-    title.classList.remove("excerpt-hover");
-  });
-});
