@@ -16,13 +16,16 @@ function get_survival_tip_count() {
     'post_type' => 'post',
     'posts_per_page' => -1,
     'category__in' => $cat_ids,
-    'fields' => 'ids',
+    'fields' => 'ids', // ID만 가져오니까 성능 최적
     'post_status' => 'publish'
   );
 
   $query = new WP_Query($args);
+  $total_posts = $query->found_posts;
+
   $result = ($total_posts < 101) ? 101 : $total_posts;
   set_transient('bukddoo_survival_tip_count', $result, HOUR_IN_SECONDS);
+
   return $result;
 }
 
@@ -95,3 +98,43 @@ function render_category_section($cat_slug, $size = 'small', $limit = 2) {
 
 
 
+function render_work_section($limit = 5, $origin = 'home') {
+  $cat = get_category_by_slug('work-roughly');
+  if (!$cat) return;
+
+  $q = new WP_Query([
+    'category__in' => [$cat->term_id],
+    'posts_per_page' => $limit,
+    'post_status' => 'publish'
+  ]);
+
+  $found = 0;
+
+  if ($q->have_posts()) {
+    while ($q->have_posts()) {
+      $q->the_post();
+
+      $fields = [
+        'field' => get_field('work_field'),
+        'year' => get_field('work_year'),
+        'scale' => get_field('work_scale'),
+        'owner' => get_field('work_owner'),
+        'description' => get_field('work_description'),
+        'thumbnail' => get_the_post_thumbnail_url(),
+        'origin' => $origin
+      ];
+
+      get_template_part('components/gallery-post-card', null, $fields);
+
+      $found++;
+    }
+  }
+
+  if ($found < $limit) {
+    for ($i = $found; $i < $limit; $i++) {
+      get_template_part('components/no-post-message');
+    }
+  }
+
+  wp_reset_postdata();
+}

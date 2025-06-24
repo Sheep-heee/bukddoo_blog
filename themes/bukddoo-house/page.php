@@ -101,15 +101,55 @@
               'text' => '더 많은 일'
             ));
           ?></div>
-      <div class="gallery"></div>
+      <div class="gallery">
+        <?php render_work_section(5, "home"); ?>
+      </div>
     </section>
     <section class="who-is-bukddoo">
       <div class="title introduce">
         벅뚜가 뉘신지?
       </div>
       <div class="introduce-contact">
-        <div class="first-block profile"></div>
-        <div class="contact"></div>
+        <div class="first-block profile">
+          <div class="img-box no-bg">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/profile.png" alt="profile image">
+          </div>
+          <div class="intro_text_area">
+            <div class="desc_group">
+              <p>뚜벅이. 직장인. 수인분당선을 영원히 기다림.</p>
+              <p>글 쓰고 그림 그리고 디자인하고 영상 편집하고 코드 치는, 하고 싶은게 너무 많음.</p>
+              <p>말 없는 조용한 학생으로 살아와 그 반동으로 지금은 계속 주절주절.</p>
+              <p>서른 되기 전에 대통령 선거 3번 치룸. (오버스펙)</p>
+              <p>주식, 코인, 부동산, 술, 담배, 커피 관심無. 맑은 정신의 노동 소득만이 최고의 가치.</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact">
+          <div class="contact-text-area">
+            <h3>도적이 되고 싶은 자는<br />나에게...</h3>
+            <p class="sub-text">형법 제329조(절도) : 타인의 재물을 절취한 자는 6년 이하의 징역 또는 1천만원 이하의 벌금에 처한다.</p>
+          </div>
+          <ul class="contact_item">
+            <a href="mailto:sheephi0609&#64;gmail.com">
+              <li>
+                <i class="fa-regular fa-envelope"></i>
+                <p>sheephi0609&#64;gmail.com</p>
+              </li>
+            </a>
+              <a href="https://x.com/rolling_bukddoo" target="_blank" rel="noopener noreferrer">
+                <li>
+                  <i class="fa-brands fa-x-twitter"></i>
+                  <p>@rolling_bukddoo</p>
+                </li>
+              </a>
+              <a href="https://www.instagram.com/rolling_bukddoo" target="_blank" rel="noopener noreferrer">
+                <li>
+                  <i class="fa-brands fa-instagram"></i>
+                  <p>rolling_bukddoo</p>
+                </li>
+              </a>
+          </ul>
+        </div>
       </div>
     </section>
   </div>

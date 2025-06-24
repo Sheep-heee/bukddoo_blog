@@ -27,15 +27,13 @@
 }
 
 @mixin block-transition {
-  transition: background-color 0.25s ease,
-  padding 0.35s ease,
-  box-shadow 0.35s ease;
+  transition: background-color 0.25s ease, padding 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 @mixin block-hover-effect {
   background-color: $color-pureWhite;
   box-shadow: -0.1875rem 0.1875rem 0 $color-textBlack inset;
-  padding: 2.1875rem 2.1875rem 1.8125rem 1.8125rem;
 }
 
 @mixin excerpt-text {
