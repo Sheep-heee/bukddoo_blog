@@ -2,7 +2,7 @@
 <?php get_template_part('include/header'); ?>
 
 <main>
-  <div class="inner">
+  <div class="main-container inner">
     <section class="intro-notice">
       <div class="first-block intro">
         <div class="rice-banner">
@@ -25,27 +25,11 @@
         <?php if ($notice): ?>
           <article class="notice-post">
             <div class="notice-title">
-              <h3>📌 내 거친 생각과 불안한 공지</h3>
+              <h3>📌 소리있는 아우성</h3>
               <div class="marker"></div>
             </div>
             <a href="<?= esc_url($notice['permalink']) ?>">
               <div class="notice-post-info">
-                <div class="notice-images">
-                  <?php
-                  $img_count = count($notice['images']);
-                  if ($img_count <= 4) {
-                    foreach ($notice['images'] as $img) {
-                      echo '<div class="image-wrap">' . $img . '</div>';
-                    }
-                  } else {
-                    for ($i = 0; $i < 3; $i++) {
-                      echo '<div class="image-wrap">' . $notice['images'][$i] . '</div>';
-                    }
-                    $remain = $img_count - 3;
-                    echo '<div class="image-wrap notice-image-box">+' . $remain . '</div>';
-                  }
-                  ?>
-                </div>
                 <div class="notice-text">
                   <div class="notice-post-title-area">
                     <h4 class="notice-post-title"><?= esc_html($notice['title']) ?></h4>
@@ -53,6 +37,41 @@
                   </div>
                   <p class="notice-excerpt"><?= esc_html($notice['excerpt']) ?></p>
                 </div>
+                <?php
+                  $images = $notice['images'];
+                  $total = count($images);
+                  
+                  if ($total === 1) {
+                    echo '<div class="notice-images row-image">';
+                    echo '<div class="image-wrap">' . $images[0] . '</div>';
+                    echo "</div>";
+                  } elseif ($total <= 4) {
+                    echo '<div class="notice-images row-image">';
+                    foreach ($images as $img) {
+                      echo '<div class="image-wrap">' . $img . '</div>';
+                    }
+                    echo "</div>";
+                  } else {
+                    echo '<div class="notice-images grid-image">';
+
+                    echo '<div class="image-wrap main-image">' . $images[0] . '</div>';
+
+                    if ($total === 5) {
+                      for ($i = 1; $i <= 4; $i++) {
+                        echo '<div class="image-wrap sub-image">' . $images[$i] . '</div>';
+                      }
+
+                    } else {
+                      for ($i = 1; $i <= 3; $i++) {
+                        echo '<div class="image-wrap sub-image">' . $images[$i] . '</div>';
+                      }
+                      $remain = $total - 4; // 총 4장만 출력했으므로
+                      echo '<div class="image-wrap sub-image notice-image-box">+' . $remain . '</div>';
+                    }
+
+                    echo '</div>';
+                  }
+                  ?>
               </div>
             </a>
           </article>

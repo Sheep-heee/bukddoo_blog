@@ -16,7 +16,7 @@ function get_survival_tip_count() {
     'post_type' => 'post',
     'posts_per_page' => -1,
     'category__in' => $cat_ids,
-    'fields' => 'ids', // ID만 가져오니까 성능 최적
+    'fields' => 'ids',
     'post_status' => 'publish'
   );
 
@@ -89,7 +89,7 @@ function render_category_section($cat_slug, $size = 'small', $limit = 2) {
   
   if ($found < $limit) {
     for ($i = $found; $i < $limit; $i++) {
-      get_template_part('components/no-post-message');
+      get_template_part('components/no-post-message', null, ['context' => 'home']);
     }
   }
 
@@ -132,7 +132,7 @@ function render_work_section($limit = 5, $origin = 'home') {
 
   if ($found < $limit) {
     for ($i = $found; $i < $limit; $i++) {
-      get_template_part('components/no-post-message');
+      get_template_part('components/no-post-message', null, ['context' => 'home']);
     }
   }
 

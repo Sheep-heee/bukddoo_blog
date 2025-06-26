@@ -77,9 +77,9 @@ body::before {
 }
 
 ul,
-ol {
+ol,
+li {
   list-style: none;
-  color: inherit;
 }
 
 a {
@@ -152,6 +152,13 @@ main {
 }
 main .inner {
   background-color: #f4f6f9;
+}
+main:has(aside) .inner {
+  display: flex;
+}
+
+.contents-container {
+  width: calc(100% - 25rem);
 }
 
 header {
@@ -301,22 +308,28 @@ footer .inner .log {
   opacity: 0.3;
 }
 
-.inner {
+.right-panel {
+  width: 25rem;
+  height: 100%;
+  background-color: #f4f6f9;
+}
+
+.main-container.inner {
   display: flex;
   flex-direction: column;
   background-color: #2f2f2f;
 }
-.inner section {
+.main-container.inner section {
   width: 100%;
   background-color: #f4f6f9;
   border-left: 1px solid #5c5f66;
   border-right: 1px solid #5c5f66;
   border-bottom: 1px solid #5c5f66;
 }
-.inner section .first-block {
+.main-container.inner section .first-block {
   border-right: 1px solid #5c5f66;
 }
-.inner section .title {
+.main-container.inner section .title {
   height: 3.875rem;
   font-size: 1.5rem;
   font-weight: 800;
@@ -326,14 +339,14 @@ footer .inner .log {
   justify-content: space-between;
   border-bottom: 1px solid #5c5f66;
 }
-.inner section .title.post {
+.main-container.inner section .title.post {
   background-color: #e7e9ed;
 }
-.inner section .title.introduce {
+.main-container.inner section .title.introduce {
   background-color: #2f2f2f;
   color: #f4f6f9;
 }
-.inner section .title .more-link-btn {
+.main-container.inner section .title .more-link-btn {
   font-size: 0.875rem;
   font-weight: 800;
   padding: 0.5rem 1rem;
@@ -344,26 +357,26 @@ footer .inner .log {
   gap: 0.25rem;
   transition: all 0.4s ease;
 }
-.inner section .title .more-link-btn:hover {
+.main-container.inner section .title .more-link-btn:hover {
   color: #f4f6f9;
   background-color: #2f2f2f;
 }
-.inner section h3 {
+.main-container.inner section h3 {
   font-size: 1.25rem;
 }
-.inner section.intro-notice {
-  height: 17.875rem;
+.main-container.inner section.intro-notice {
+  height: 20.875rem;
   display: flex;
 }
-.inner section.intro-notice .intro {
+.main-container.inner section.intro-notice .intro {
   width: 58.25rem;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
-.inner section.intro-notice .intro .rice-banner {
+.main-container.inner section.intro-notice .intro .rice-banner {
   width: 100%;
-  height: 11.75rem;
+  height: 14.75rem;
   border-bottom: 1px solid #5c5f66;
   padding: 1.5rem;
   display: flex;
@@ -376,38 +389,38 @@ footer .inner .log {
   background-position: center;
   background-repeat: no-repeat;
 }
-.inner section.intro-notice .intro .rice-banner div {
+.main-container.inner section.intro-notice .intro .rice-banner div {
   width: 4.375rem;
   text-align: right;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
-.inner section.intro-notice .intro .rice-banner div img {
+.main-container.inner section.intro-notice .intro .rice-banner div img {
   width: 100%;
   height: 4.375rem;
   object-fit: contain;
 }
-.inner section.intro-notice .intro .one-word-banner {
-  height: calc(100% - 11.75rem);
+.main-container.inner section.intro-notice .intro .one-word-banner {
+  height: calc(100% - 14.75rem);
   display: flex;
   align-items: center;
   gap: 0.5rem;
   padding: 1.5rem;
 }
-.inner section.intro-notice .intro .one-word-banner i {
+.main-container.inner section.intro-notice .intro .one-word-banner i {
   font-size: 2rem;
 }
-.inner section.intro-notice .intro .one-word-banner .main-word {
+.main-container.inner section.intro-notice .intro .one-word-banner .main-word {
   display: flex;
   align-items: flex-end;
   gap: 0.25rem;
   font-weight: 800;
 }
-.inner section.intro-notice .intro .one-word-banner .main-word .large-word {
+.main-container.inner section.intro-notice .intro .one-word-banner .main-word .large-word {
   font-size: 2.5rem;
 }
-.inner section.intro-notice .notice {
+.main-container.inner section.intro-notice .notice {
   width: calc(100% - 58.25rem);
   height: 100%;
   padding: 2rem;
@@ -418,25 +431,25 @@ footer .inner .log {
   box-shadow: 0 0 0 #5c5f66 inset;
   transition: background-color 0.25s ease, padding 0.35s ease, box-shadow 0.35s ease;
 }
-.inner section.intro-notice .notice .notice-post {
+.main-container.inner section.intro-notice .notice .notice-post {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 1rem;
 }
-.inner section.intro-notice .notice .notice-post .notice-title {
+.main-container.inner section.intro-notice .notice .notice-post .notice-title {
   width: fit-content;
   height: fit-content;
   position: relative;
 }
-.inner section.intro-notice .notice .notice-post .notice-title h3 {
+.main-container.inner section.intro-notice .notice .notice-post .notice-title h3 {
   font-size: 1.25rem;
   font-weight: 800;
   position: relative;
   z-index: 1;
 }
-.inner section.intro-notice .notice .notice-post .notice-title .marker {
+.main-container.inner section.intro-notice .notice .notice-post .notice-title .marker {
   width: 100%;
   height: 0.625rem;
   background-color: #FFD781;
@@ -444,111 +457,35 @@ footer .inner .log {
   bottom: 0;
   left: 0;
 }
-.inner section.intro-notice .notice .notice-post .notice-post-info {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.inner section.intro-notice .notice .notice-post .notice-post-info .notice-images {
+.main-container.inner section.intro-notice .notice .notice-post a {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  height: calc(100% - 2.25rem);
 }
-.inner section.intro-notice .notice .notice-post .notice-post-info .notice-images .image-wrap {
-  width: 24%;
-  aspect-ratio: 1/1;
-  overflow: hidden;
-  border-radius: 0.5rem;
-}
-.inner section.intro-notice .notice .notice-post .notice-post-info .notice-images .image-wrap img {
+.main-container.inner section.intro-notice .notice .notice-post a .notice-post-info {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-}
-.inner section.intro-notice .notice .notice-post .notice-post-info .notice-images .image-wrap.notice-image-box {
-  width: 24%;
-  aspect-ratio: 1/1;
-  font-size: 0.875rem;
-  font-weight: 800;
-  background-color: #e7e9ed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.inner section.intro-notice .notice .notice-post .notice-post-info .notice-text {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-.inner section.intro-notice .notice .notice-post .notice-post-info .notice-text .notice-post-title-area {
-  font-size: 0.875rem;
+.main-container.inner section.intro-notice .notice .notice-post a .notice-post-info .notice-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.main-container.inner section.intro-notice .notice .notice-post a .notice-post-info .notice-text .notice-post-title-area {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.inner section.intro-notice .notice .notice-post .notice-post-info .notice-text .notice-post-title-area .notice-title {
+.main-container.inner section.intro-notice .notice .notice-post a .notice-post-info .notice-text .notice-post-title-area .notice-post-title {
   font-weight: 800;
 }
-.inner section.intro-notice .notice .notice-post .notice-post-info .notice-text .notice-post-title-area .notice-date {
+.main-container.inner section.intro-notice .notice .notice-post a .notice-post-info .notice-text .notice-post-title-area .notice-date {
+  font-size: 0.875rem;
   color: #8890a3;
 }
-.inner section.intro-notice .notice .notice-post .notice-post-info .notice-text .notice-excerpt {
-  line-height: 1.4;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-  word-break: keep-all;
-  overflow: hidden;
-  line-clamp: 4;
-  -webkit-line-clamp: 4;
-}
-.inner section.intro-notice .notice:hover {
-  background-color: #ffffff;
-  box-shadow: -0.1875rem 0.1875rem 0 #2f2f2f inset;
-  padding: 2.1875rem 2.1875rem 1.8125rem 1.8125rem;
-}
-.inner section .main-post-card {
-  width: 100%;
-  height: 100%;
-  padding: 2rem;
-  transition: background-color 0.25s ease, padding 0.35s ease, box-shadow 0.35s ease;
-}
-.inner section .main-post-card:not(.is-empty):hover {
-  background-color: #ffffff;
-  box-shadow: -0.1875rem 0.1875rem 0 #2f2f2f inset;
-  padding: 2.1875rem 2.1875rem 1.8125rem 1.8125rem;
-}
-.inner section .main-post-card a {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-.inner section .main-post-card a .thumb-wrap {
-  width: 100%;
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
-.inner section .main-post-card a .thumb-wrap img {
-  object-fit: cover;
-}
-.inner section .main-post-card a .post-contents-area {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
-}
-.inner section .main-post-card a .post-contents-area .post-text {
-  display: flex;
-  flex-direction: column;
-}
-.inner section .main-post-card a .post-contents-area .post-text .post-title {
-  font-weight: 800;
-}
-.inner section .main-post-card a .post-contents-area .post-text .post-excerpt {
+.main-container.inner section.intro-notice .notice .notice-post a .notice-post-info .notice-text .notice-excerpt {
   line-height: 1.4;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -558,133 +495,230 @@ footer .inner .log {
   line-clamp: 3;
   -webkit-line-clamp: 3;
 }
-.inner section .main-post-card a .post-contents-area .post-meta {
+.main-container.inner section.intro-notice .notice .notice-post a .notice-post-info .notice-images {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  flex: 1;
+  display: grid;
+  gap: 0.25rem;
+  overflow: hidden;
+}
+.main-container.inner section.intro-notice .notice .notice-post a .notice-post-info .notice-images.row-image {
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+}
+.main-container.inner section.intro-notice .notice .notice-post a .notice-post-info .notice-images.grid-image {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.main-container.inner section.intro-notice .notice .notice-post a .notice-post-info .notice-images .image-wrap {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+.main-container.inner section.intro-notice .notice .notice-post a .notice-post-info .notice-images .image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.main-container.inner section.intro-notice .notice .notice-post a .notice-post-info .notice-images .image-wrap.main-image {
+  grid-column: 1/span 2;
+  grid-row: 1/span 2;
+}
+.main-container.inner section.intro-notice .notice .notice-post a .notice-post-info .notice-images .image-wrap.notice-image-box {
+  aspect-ratio: 1/1;
+  font-size: 0.875rem;
+  font-weight: 800;
+  background-color: #e7e9ed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-container.inner section.intro-notice .notice:hover {
+  background-color: #ffffff;
+  box-shadow: -0.1875rem 0.1875rem 0 #2f2f2f inset;
+  padding: 2.1875rem 2.1875rem 1.8125rem 1.8125rem;
+}
+.main-container.inner section .main-post-card {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  transition: background-color 0.25s ease, padding 0.35s ease, box-shadow 0.35s ease;
+}
+.main-container.inner section .main-post-card:not(.is-empty):hover {
+  background-color: #ffffff;
+  box-shadow: -0.1875rem 0.1875rem 0 #2f2f2f inset;
+  padding: 2.1875rem 2.1875rem 1.8125rem 1.8125rem;
+}
+.main-container.inner section .main-post-card a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.main-container.inner section .main-post-card a .thumb-wrap {
+  width: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.main-container.inner section .main-post-card a .thumb-wrap img {
+  object-fit: cover;
+}
+.main-container.inner section .main-post-card a .post-contents-area {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+.main-container.inner section .main-post-card a .post-contents-area .post-text {
+  display: flex;
+  flex-direction: column;
+}
+.main-container.inner section .main-post-card a .post-contents-area .post-text .post-title {
+  font-weight: 800;
+}
+.main-container.inner section .main-post-card a .post-contents-area .post-text .post-excerpt {
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  word-break: keep-all;
+  overflow: hidden;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+}
+.main-container.inner section .main-post-card a .post-contents-area .post-meta {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.inner section .main-post-card a .post-contents-area .post-meta .meta-date {
+.main-container.inner section .main-post-card a .post-contents-area .post-meta .meta-date {
   font-size: 0.75rem;
   color: #8890a3;
 }
-.inner section .main-post-card a .post-contents-area .post-meta .reaction {
+.main-container.inner section .main-post-card a .post-contents-area .post-meta .reaction {
   display: flex;
   justify-content: flex-end;
   gap: 1.5rem;
   color: #728cb0;
 }
-.inner section .main-post-card a .post-contents-area .post-meta .reaction .meta-icon {
+.main-container.inner section .main-post-card a .post-contents-area .post-meta .reaction .meta-icon {
   display: flex;
   gap: 0.25rem;
   align-items: center;
   font-size: 0.75rem;
   font-weight: 800;
 }
-.inner section .main-post-card a .post-contents-area .post-meta .reaction .meta-icon i {
+.main-container.inner section .main-post-card a .post-contents-area .post-meta .reaction .meta-icon i {
   font-size: 1rem;
 }
-.inner section .main-post-card.is-empty {
+.main-container.inner section .main-post-card.is-empty {
   padding: 1rem;
 }
-.inner section .main-post-card.work-area {
+.main-container.inner section .main-post-card.work-area {
   padding: 1rem;
 }
-.inner section .main-post-card.work-area a {
+.main-container.inner section .main-post-card.work-area a {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.inner section.latest-post {
+.main-container.inner section.latest-post {
   height: 44.875rem;
   display: flex;
 }
-.inner section.latest-post .complaints {
+.main-container.inner section.latest-post .complaints {
   width: 36.5rem;
   height: 100%;
 }
-.inner section.latest-post .complaints .is-large {
+.main-container.inner section.latest-post .complaints .is-large {
   height: calc(100% - 3.875rem);
 }
-.inner section.latest-post .complaints .is-large a {
+.main-container.inner section.latest-post .complaints .is-large a {
   flex-direction: column;
   gap: 2rem;
 }
-.inner section.latest-post .complaints .is-large a .thumb-wrap {
+.main-container.inner section.latest-post .complaints .is-large a .thumb-wrap {
   width: 100%;
   height: 24.25rem;
 }
-.inner section.latest-post .complaints .is-large a .post-contents-area .post-text {
+.main-container.inner section.latest-post .complaints .is-large a .post-contents-area .post-text {
   gap: 1rem;
 }
-.inner section.latest-post .complaints .is-large a .post-contents-area .post-text .post-title {
+.main-container.inner section.latest-post .complaints .is-large a .post-contents-area .post-text .post-title {
   font-size: 1.875rem;
 }
-.inner section.latest-post .life {
+.main-container.inner section.latest-post .life {
   width: calc(100% - 36.5rem);
   height: 100%;
 }
-.inner section.latest-post .life article {
+.main-container.inner section.latest-post .life article {
   width: 100%;
   height: calc((100% - 7.75rem) / 3);
   border-bottom: 1px solid #5c5f66;
 }
-.inner section.latest-post .life article:last-child {
+.main-container.inner section.latest-post .life article:last-child {
   border-bottom: 0;
 }
-.inner section.latest-post .life article.main-post-card.is-small a {
+.main-container.inner section.latest-post .life article.main-post-card.is-small a {
   gap: 1rem;
 }
-.inner section.latest-post .life article.main-post-card.is-small a .thumb-wrap {
+.main-container.inner section.latest-post .life article.main-post-card.is-small a .thumb-wrap {
   width: 17.75rem;
   height: 8.375rem;
 }
-.inner section.latest-post .life article.main-post-card.is-small a .post-contents-area .post-text {
+.main-container.inner section.latest-post .life article.main-post-card.is-small a .post-contents-area .post-text {
   gap: 0.25rem;
 }
-.inner section.latest-post .life article.main-post-card.is-small a .post-contents-area .post-text .post-title {
+.main-container.inner section.latest-post .life article.main-post-card.is-small a .post-contents-area .post-text .post-title {
   font-size: 1.125rem;
 }
-.inner section.latest-work {
+.main-container.inner section.latest-work {
   height: 26.625rem;
   display: flex;
   flex-direction: column;
 }
-.inner section.latest-work > div {
+.main-container.inner section.latest-work > div {
   width: 100%;
 }
-.inner section.latest-work > div.gallery {
+.main-container.inner section.latest-work > div.gallery {
   height: calc(100% - 3.875rem);
   display: flex;
 }
-.inner section.latest-work > div.gallery article {
+.main-container.inner section.latest-work > div.gallery article {
   flex: 1;
   border-right: 1px solid #5c5f66;
 }
-.inner section.latest-work > div.gallery article:last-child {
+.main-container.inner section.latest-work > div.gallery article:last-child {
   border-right: 0;
 }
-.inner section.latest-work > div.gallery article:not(.is-empty):hover {
+.main-container.inner section.latest-work > div.gallery article:not(.is-empty):hover {
   padding: 1.1875rem 1.1875rem 0.8125rem 0.8125rem;
 }
-.inner section.latest-work > div.gallery article.is-empty .no-post {
+.main-container.inner section.latest-work > div.gallery article.is-empty .no-post {
   flex-direction: column;
 }
-.inner section.latest-work > div.gallery article.is-empty .no-post .no-post-icon {
+.main-container.inner section.latest-work > div.gallery article.is-empty .no-post .no-post-icon {
   width: 50%;
 }
-.inner section.who-is-bukddoo {
+.main-container.inner section.who-is-bukddoo {
   height: 13.25rem;
   display: flex;
   flex-direction: column;
 }
-.inner section.who-is-bukddoo > div {
+.main-container.inner section.who-is-bukddoo > div {
   width: 100%;
 }
-.inner section.who-is-bukddoo > div.introduce-contact {
+.main-container.inner section.who-is-bukddoo > div.introduce-contact {
   height: calc(100% - 3.875rem);
   display: flex;
 }
-.inner section.who-is-bukddoo > div.introduce-contact .profile {
+.main-container.inner section.who-is-bukddoo > div.introduce-contact .profile {
   width: 49rem;
   height: 100%;
   border-right: 1px solid #5c5f66;
@@ -693,7 +727,7 @@ footer .inner .log {
   align-items: flex-end;
   justify-content: space-between;
 }
-.inner section.who-is-bukddoo > div.introduce-contact .profile .profile-area {
+.main-container.inner section.who-is-bukddoo > div.introduce-contact .profile .profile-area {
   width: 100%;
   height: 100%;
   flex: 1;
@@ -701,26 +735,26 @@ footer .inner .log {
   align-items: center;
   gap: 1rem;
 }
-.inner section.who-is-bukddoo > div.introduce-contact .profile .profile-area .img-box {
+.main-container.inner section.who-is-bukddoo > div.introduce-contact .profile .profile-area .img-box {
   height: 100%;
   aspect-ratio: 1/1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.inner section.who-is-bukddoo > div.introduce-contact .profile .profile-area .img-box img {
+.main-container.inner section.who-is-bukddoo > div.introduce-contact .profile .profile-area .img-box img {
   object-fit: contain;
 }
-.inner section.who-is-bukddoo > div.introduce-contact .profile .profile-area .intro_text_area {
+.main-container.inner section.who-is-bukddoo > div.introduce-contact .profile .profile-area .intro_text_area {
   display: flex;
 }
-.inner section.who-is-bukddoo > div.introduce-contact .profile .profile-area .intro_text_area .desc_group {
+.main-container.inner section.who-is-bukddoo > div.introduce-contact .profile .profile-area .intro_text_area .desc_group {
   font-size: 0.875rem;
   display: flex;
   flex-direction: column;
   gap: 0.375rem;
 }
-.inner section.who-is-bukddoo > div.introduce-contact .profile .qna-area {
+.main-container.inner section.who-is-bukddoo > div.introduce-contact .profile .qna-area {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -728,7 +762,7 @@ footer .inner .log {
   align-items: flex-end;
   justify-content: flex-end;
 }
-.inner section.who-is-bukddoo > div.introduce-contact .profile .qna-area .qna-item {
+.main-container.inner section.who-is-bukddoo > div.introduce-contact .profile .qna-area .qna-item {
   width: fit-content;
   height: fit-content;
   font-size: 0.875rem;
@@ -737,12 +771,12 @@ footer .inner .log {
   gap: 0.25rem;
   position: relative;
 }
-.inner section.who-is-bukddoo > div.introduce-contact .profile .qna-area .qna-item i {
+.main-container.inner section.who-is-bukddoo > div.introduce-contact .profile .qna-area .qna-item i {
   transform: scaleX(-1);
   position: relative;
   font-size: 1rem;
 }
-.inner section.who-is-bukddoo > div.introduce-contact .profile .qna-area .qna-item i span {
+.main-container.inner section.who-is-bukddoo > div.introduce-contact .profile .qna-area .qna-item i span {
   color: #f4f6f9;
   font-size: 0.5rem;
   font-weight: 800;
@@ -751,7 +785,7 @@ footer .inner .log {
   right: 50%;
   transform: scaleX(-1) translate(-50%, -58%);
 }
-.inner section.who-is-bukddoo > div.introduce-contact .profile .qna-area .qna-item .answer-box {
+.main-container.inner section.who-is-bukddoo > div.introduce-contact .profile .qna-area .qna-item .answer-box {
   width: fit-content;
   white-space: nowrap;
   padding: 0.5rem 1rem;
@@ -766,14 +800,14 @@ footer .inner .log {
   pointer-events: none;
   transition: all 0.4s ease;
 }
-.inner section.who-is-bukddoo > div.introduce-contact .profile .qna-area .qna-item:hover .question-text {
+.main-container.inner section.who-is-bukddoo > div.introduce-contact .profile .qna-area .qna-item:hover .question-text {
   text-decoration: underline;
 }
-.inner section.who-is-bukddoo > div.introduce-contact .profile .qna-area .qna-item:hover .answer-box {
+.main-container.inner section.who-is-bukddoo > div.introduce-contact .profile .qna-area .qna-item:hover .answer-box {
   transform: translate(-50%, 0);
   opacity: 1;
 }
-.inner section.who-is-bukddoo > div.introduce-contact .contact {
+.main-container.inner section.who-is-bukddoo > div.introduce-contact .contact {
   width: calc(100% - 49rem);
   height: 100%;
   display: flex;
@@ -781,7 +815,7 @@ footer .inner .log {
   gap: 1.5rem;
   padding: 0 1.5rem;
 }
-.inner section.who-is-bukddoo > div.introduce-contact .contact .contact-text-area {
+.main-container.inner section.who-is-bukddoo > div.introduce-contact .contact .contact-text-area {
   width: 10.875rem;
   height: 100%;
   display: flex;
@@ -789,15 +823,15 @@ footer .inner .log {
   justify-content: center;
   gap: 0.5rem;
 }
-.inner section.who-is-bukddoo > div.introduce-contact .contact .contact-text-area h3 {
+.main-container.inner section.who-is-bukddoo > div.introduce-contact .contact .contact-text-area h3 {
   line-height: 1.3;
 }
-.inner section.who-is-bukddoo > div.introduce-contact .contact .contact-text-area .sub-text {
+.main-container.inner section.who-is-bukddoo > div.introduce-contact .contact .contact-text-area .sub-text {
   font-size: 0.75rem;
   color: #8890a3;
   line-height: 1.4;
 }
-.inner section.who-is-bukddoo > div.introduce-contact .contact .contact_item {
+.main-container.inner section.who-is-bukddoo > div.introduce-contact .contact .contact_item {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -805,7 +839,7 @@ footer .inner .log {
   gap: 0.5rem;
   flex: 1;
 }
-.inner section.who-is-bukddoo > div.introduce-contact .contact .contact_item li {
+.main-container.inner section.who-is-bukddoo > div.introduce-contact .contact .contact_item li {
   width: fit-content;
   display: flex;
   gap: 0.5rem;
@@ -814,7 +848,7 @@ footer .inner .log {
   border-radius: 0.5rem;
   transition: all 0.4s ease;
 }
-.inner section.who-is-bukddoo > div.introduce-contact .contact .contact_item li:hover {
+.main-container.inner section.who-is-bukddoo > div.introduce-contact .contact .contact_item li:hover {
   background-color: #2f2f2f;
   color: #f4f6f9;
 }

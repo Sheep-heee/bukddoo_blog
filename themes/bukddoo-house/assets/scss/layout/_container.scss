@@ -10,4 +10,13 @@ main {
   .inner {
     background-color: $color-white;
   }
+  &:has(aside) {
+    .inner {
+      display: flex;
+    }
+  }
+}
+
+.contents-container {
+  width: calc(100% - 25rem);
 }
