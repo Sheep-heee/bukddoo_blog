@@ -1,0 +1,33 @@
+.category-post-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .no-post-default {
+    height: 11rem;
+    padding: $spacing-32;
+    border-top: $line;
+  }
+  li:last-child {
+    border-bottom: $line;
+  }
+}
+
+.load-more-wrap {
+  width: 100%;
+  margin-top: $spacing-24;
+  margin-bottom: $spacing-64;
+  padding: 0 $spacing-32;
+  .more-text-group {
+    width: 100%;
+    color: $color-ashBlueGray;
+    @include flex-center;
+    gap: $spacing-4;
+    padding: 0.875rem 0;
+    border-radius: $spacing-8;
+    background-color: $color-ashBlueLightGray;
+    transition: background-color 0.4s ease;
+    &:hover {
+      background-color: $color-ashBlueGray-translucent;
+    }
+  }
+}

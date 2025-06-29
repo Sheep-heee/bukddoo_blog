@@ -1,39 +1,38 @@
+<?php
+$category = get_queried_object();
+$slug = $category->slug;
+?>
+
 <div class="contents-container">
-  <form id="sort-form">
-    <label for="sort-order" class="visually-hidden">정렬 방식</label>
-    <select id="sort-order" name="sort">
-      <option value="new" selected>최신순</option>
-      <option value="old">오래된순</option>
-    </select>
-  </form>
+  <?php get_template_part('components/sort-buttton'); ?>
+
   <ul class="category-post-list" id="ajax-post-list">
     <?php
     $query = new WP_Query(array(
       'post_type' => 'post',
       'posts_per_page' => 6,
       'paged' => 1,
-      'category_name' => get_queried_object()->slug
+      'category_name' => $slug
     ));
-
-    $post_count = 0;
 
     if ($query->have_posts()) :
       while ($query->have_posts()) :
         $query->the_post();
         get_template_part('components/list-post-card');
-        $post_count++;
       endwhile;
       wp_reset_postdata();
+    else :
+      get_template_part('components/empty-bowl');
     endif;
-
-    $empty_slots = 6 - $post_count;
-    for ($i = 0; $i < $empty_slots; $i++) {
-      get_template_part('components/no-post-message');
-    }
     ?>
   </ul>
 
-  <div class="load-more-wrap">
-    <button id="load-more-btn">더보기</button>
-  </div>
+  <?php if ($query->found_posts > 6) : ?>
+    <div class="load-more-wrap">
+      <button class="more-text-group" data-page="1" data-category="<?php echo esc_attr($slug); ?>">
+        <i class="fa-solid fa-plus"></i>
+        <span>더보기</span>
+      </button>
+    </div>
+  <?php endif; ?>
 </div>

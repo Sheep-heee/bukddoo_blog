@@ -1,3 +1,77 @@
+.list-post-card-container {
+  width: 100%;
+  height: 11rem;
+  padding: $spacing-24 $spacing-32;
+  border-top: $line;
+  @include block-transition;
+  a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: $spacing-24;
+    .thumb-wrap {
+      width: 15.625rem;
+      height: 100%;
+      border-radius: $spacing-8;
+      overflow: hidden;
+      img {
+        object-fit: cover;
+      }
+    }
+    .post-contents-area {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+      .post-text {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-4;
+        .post-title {
+          font-size: 1.125rem;
+          font-weight: 800;
+        }
+        .post-excerpt {
+          @include excerpt-text;
+          line-clamp: 3;
+          -webkit-line-clamp: 3;
+        }
+      }
+      .post-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .meta-date {
+          font-size: 0.75rem;
+          color: $color-ashBlueGray;
+        }
+        .reaction {
+          display: flex;
+          justify-content: flex-end;
+          gap: $spacing-24;
+          color: $color-ashBlue;
+          .meta-icon {
+            display: flex;
+            gap: $spacing-4;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: 800;
+            i {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  &:hover {
+    @include block-hover-effect;
+    padding: 1.6875rem 2.1875rem 1.3125rem 1.8125rem;
+  }
+}
+
 .work-post-card {
   width: 100%;
   height: 100%;

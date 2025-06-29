@@ -4,6 +4,9 @@
   padding: 6rem $spacing-32 $spacing-64;
   margin: 0 auto;
   word-break: keep-all;
+  background-color: $color-white;
+  border-left: $line;
+  border-right: $line;
   h3 {
     margin-bottom: $spacing-8;
   }

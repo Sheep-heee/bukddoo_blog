@@ -1,6 +1,2 @@
-<?php get_template_part('include/header'); ?>
-
-<main>
-</main>
-
-<?php get_template_part('include/footer'); ?>
+<div class="contents-container">
+</div>

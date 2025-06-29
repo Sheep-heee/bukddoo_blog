@@ -1,0 +1,16 @@
+.sort-buttons {
+  width: 100%;
+  padding: $spacing-32 0 $spacing-16 $spacing-32;
+  display: flex;
+  align-items: flex-end;
+  gap: $spacing-16;
+  .sort-btn {
+    font-size: 0.875rem;
+    color: $color-ashBlueGray;
+    &.sort-active {
+      font-weight: 800;
+      color: $color-ashBlue;
+      text-decoration: underline;
+    }
+  }
+}

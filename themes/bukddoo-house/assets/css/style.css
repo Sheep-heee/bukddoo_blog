@@ -117,10 +117,6 @@ select:focus {
   box-shadow: none;
 }
 
-button {
-  cursor: pointer;
-}
-
 img,
 video {
   max-width: 100%;
@@ -148,17 +144,20 @@ table {
 
 main {
   width: 100%;
-  height: fit-content;
 }
 main .inner {
   background-color: #f4f6f9;
 }
 main:has(aside) .inner {
   display: flex;
+  border-bottom: 1px solid #5c5f66;
 }
 
 .contents-container {
   width: calc(100% - 25rem);
+  min-height: calc(100vh - 4.25rem - 8rem);
+  border-left: 1px solid #5c5f66;
+  border-right: 1px solid #5c5f66;
 }
 
 header {
@@ -310,8 +309,47 @@ footer .inner .log {
 
 .right-panel {
   width: 25rem;
+  min-height: calc(100vh - 4.25rem - 8rem);
   height: 100%;
+  padding: 2rem;
   background-color: #f4f6f9;
+  border-right: 1px solid #5c5f66;
+}
+
+.category-post-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.category-post-list .no-post-default {
+  height: 11rem;
+  padding: 2rem;
+  border-top: 1px solid #5c5f66;
+}
+.category-post-list li:last-child {
+  border-bottom: 1px solid #5c5f66;
+}
+
+.load-more-wrap {
+  width: 100%;
+  margin-top: 1.5rem;
+  margin-bottom: 4rem;
+  padding: 0 2rem;
+}
+.load-more-wrap .more-text-group {
+  width: 100%;
+  color: #8890a3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.875rem 0;
+  border-radius: 0.5rem;
+  background-color: #e7e9ed;
+  transition: background-color 0.4s ease;
+}
+.load-more-wrap .more-text-group:hover {
+  background-color: #d4d8e0;
 }
 
 .main-container.inner {
@@ -452,7 +490,7 @@ footer .inner .log {
 .main-container.inner section.intro-notice .notice .notice-post .notice-title .marker {
   width: 100%;
   height: 0.625rem;
-  background-color: #FFD781;
+  background-color: #ffd781;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -859,6 +897,9 @@ footer .inner .log {
   padding: 6rem 2rem 4rem;
   margin: 0 auto;
   word-break: keep-all;
+  background-color: #f4f6f9;
+  border-left: 1px solid #5c5f66;
+  border-right: 1px solid #5c5f66;
 }
 .privacy-container h3 {
   margin-bottom: 0.5rem;
@@ -880,6 +921,86 @@ footer .inner .log {
 }
 .privacy-container a:hover {
   text-decoration: underline;
+}
+
+.list-post-card-container {
+  width: 100%;
+  height: 11rem;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid #5c5f66;
+  transition: background-color 0.25s ease, padding 0.35s ease, box-shadow 0.35s ease;
+}
+.list-post-card-container a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 1.5rem;
+}
+.list-post-card-container a .thumb-wrap {
+  width: 15.625rem;
+  height: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.list-post-card-container a .thumb-wrap img {
+  object-fit: cover;
+}
+.list-post-card-container a .post-contents-area {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+.list-post-card-container a .post-contents-area .post-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.list-post-card-container a .post-contents-area .post-text .post-title {
+  font-size: 1.125rem;
+  font-weight: 800;
+}
+.list-post-card-container a .post-contents-area .post-text .post-excerpt {
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  word-break: keep-all;
+  overflow: hidden;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+}
+.list-post-card-container a .post-contents-area .post-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.list-post-card-container a .post-contents-area .post-meta .meta-date {
+  font-size: 0.75rem;
+  color: #8890a3;
+}
+.list-post-card-container a .post-contents-area .post-meta .reaction {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  color: #728cb0;
+}
+.list-post-card-container a .post-contents-area .post-meta .reaction .meta-icon {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+.list-post-card-container a .post-contents-area .post-meta .reaction .meta-icon i {
+  font-size: 1rem;
+}
+.list-post-card-container:hover {
+  background-color: #ffffff;
+  box-shadow: -0.1875rem 0.1875rem 0 #2f2f2f inset;
+  padding: 1.6875rem 2.1875rem 1.3125rem 1.8125rem;
 }
 
 .work-post-card {
@@ -1015,4 +1136,21 @@ article.work-post-card:hover .hover-info .work-info-meta {
   display: flex;
   align-items: center;
   color: #8890a3;
+}
+
+.sort-buttons {
+  width: 100%;
+  padding: 2rem 0 1rem 2rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+.sort-buttons .sort-btn {
+  font-size: 0.875rem;
+  color: #8890a3;
+}
+.sort-buttons .sort-btn.sort-active {
+  font-weight: 800;
+  color: #728cb0;
+  text-decoration: underline;
 }

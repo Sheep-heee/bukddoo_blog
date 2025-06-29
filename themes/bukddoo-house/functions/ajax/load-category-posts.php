@@ -1,9 +1,9 @@
 <?php
 
-add_action('wp_ajax_load_more_category_posts', 'bukddoo_ajax_load_more_category_posts');
-add_action('wp_ajax_nopriv_load_more_category_posts', 'bukddoo_ajax_load_more_category_posts');
+add_action('wp_ajax_load_more_category_posts', 'load_more_category_posts');
+add_action('wp_ajax_nopriv_load_more_category_posts', 'load_more_category_posts');
 
-function bukddoo_ajax_load_more_category_posts() {
+function load_more_category_posts() {
   $paged = isset($_GET['page']) ? intval($_GET['page']) : 1;
   $category = isset($_GET['category']) ? sanitize_text_field($_GET['category']) : '';
 
