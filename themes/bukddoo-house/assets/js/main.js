@@ -1,9 +1,9 @@
-const input = document.getElementById("searchInput");
+const searchInput = document.getElementById("searchInput");
 const clearBtn = document.getElementById("clearButton");
 
 clearBtn.addEventListener("click", () => {
-  input.value = "";
-  input.focus();
+  searchInput.value = "";
+  searchInput.focus();
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -14,38 +14,40 @@ document.addEventListener("DOMContentLoaded", function () {
   loadMoreBtn.addEventListener("click", function () {
     const page = parseInt(this.dataset.page, 10);
     const category = this.dataset.category;
+    const max = parseInt(this.dataset.max, 10);
 
     this.disabled = true;
     this.textContent = "불러오는 중...";
 
-    fetch("/wp-admin/admin-ajax.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: new URLSearchParams({
-        action: "load_more_category_posts",
-        page: page + 1,
-        category: category,
-      }),
-    })
-      .then((res) => res.text())
-      .then((html) => {
-        const postList = document.querySelector(".category-post-list");
+    const formData = new FormData();
+    formData.append("action", "load_category_posts");
+    formData.append("page", page + 1);
+    formData.append("category", category);
 
-        if (html.trim()) {
-          postList.insertAdjacentHTML("beforeend", html);
-          loadMoreBtn.dataset.page = page + 1;
+  fetch(ajaxObj.ajaxurl, {
+    method: "POST",
+    body: formData,
+  })
+    .then((res) => res.text())
+    .then((html) => {
+      const postList = document.querySelector(".category-post-list");
+
+      if (html.trim()) {
+        postList.insertAdjacentHTML("beforeend", html);
+
+        const nextPage = page + 1;
+        const newPostCount = nextPage * 6;
+
+        if (newPostCount >= max) {
+          loadMoreBtn.remove();
+        } else {
+          loadMoreBtn.dataset.page = nextPage;
           loadMoreBtn.disabled = false;
           loadMoreBtn.textContent = "더 보기";
-        } else {
-          loadMoreBtn.remove();
         }
-      })
-      .catch((err) => {
-        console.error("AJAX 에러:", err);
-        loadMoreBtn.disabled = false;
-        loadMoreBtn.textContent = "더 보기";
-      });
+      } else {
+        loadMoreBtn.remove();
+      }
+    });
   });
 });

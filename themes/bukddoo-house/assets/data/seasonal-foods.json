@@ -1,0 +1,26 @@
+{
+  "6": [
+    { "name": "참외", "icon": "chamoe.svg" },
+    { "name": "오이", "icon": "cucumber.svg" },
+    { "name": "토마토", "icon": "tomato.svg" },
+    { "name": "감자", "icon": "potato.svg" },
+    { "name": "애호박", "icon": "zucchini.svg" },
+    { "name": "복분자", "icon": "bokbunja.svg" },
+    { "name": "전복", "icon": "abalone.svg" },
+    { "name": "꽁치", "icon": "saury.svg" },
+    { "name": "고등어", "icon": "mackerel.svg" },
+    { "name": "자두", "icon": "plum.svg" }
+  ],
+  "7": [
+    { "name": "옥수수", "icon": "corn.svg" },
+    { "name": "복숭아", "icon": "peach.svg" },
+    { "name": "가지", "icon": "eggplant.svg" },
+    { "name": "수박", "icon": "watermelon.svg" },
+    { "name": "방울토마토", "icon": "cherry-tomato.svg" },
+    { "name": "양배추", "icon": "cabbage.svg" },
+    { "name": "장어", "icon": "eel.svg" },
+    { "name": "문어", "icon": "octopus.svg" },
+    { "name": "참다랑어", "icon": "tuna.svg" },
+    { "name": "살구", "icon": "apricot.svg" }
+  ]
+}

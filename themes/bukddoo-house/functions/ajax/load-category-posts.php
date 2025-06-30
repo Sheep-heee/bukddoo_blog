@@ -1,11 +1,11 @@
 <?php
 
-add_action('wp_ajax_load_more_category_posts', 'load_more_category_posts');
-add_action('wp_ajax_nopriv_load_more_category_posts', 'load_more_category_posts');
+add_action('wp_ajax_load_category_posts', 'load_more_category_posts');
+add_action('wp_ajax_nopriv_load_category_posts', 'load_more_category_posts');
 
 function load_more_category_posts() {
-  $paged = isset($_GET['page']) ? intval($_GET['page']) : 1;
-  $category = isset($_GET['category']) ? sanitize_text_field($_GET['category']) : '';
+$paged = isset($_POST['page']) ? intval($_POST['page']) : 1;
+$category = isset($_POST['category']) ? sanitize_text_field($_POST['category']) : '';
 
   $args = array(
     'post_type' => 'post',

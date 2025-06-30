@@ -1,6 +1,14 @@
 <?php
 $category = get_queried_object();
 $slug = $category->slug;
+
+$total_posts = new WP_Query(array(
+  'post_type' => 'post',
+  'posts_per_page' => -1,
+  'category_name' => $slug,
+));
+$total_count = $total_posts->found_posts;
+wp_reset_postdata();
 ?>
 
 <div class="contents-container">
@@ -29,7 +37,7 @@ $slug = $category->slug;
 
   <?php if ($query->found_posts > 6) : ?>
     <div class="load-more-wrap">
-      <button class="more-text-group" data-page="1" data-category="<?php echo esc_attr($slug); ?>">
+      <button class="more-text-group" data-page="1" data-category="<?php echo esc_attr($slug); ?>" data-max="<?php echo esc_attr($total_count); ?>">
         <i class="fa-solid fa-plus"></i>
         <span>더보기</span>
       </button>
