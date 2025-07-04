@@ -156,6 +156,7 @@ main:has(aside) .inner {
 .contents-container {
   width: calc(100% - 25rem);
   min-height: calc(100vh - 4.25rem - 8rem);
+  flex: 1;
   border-left: 1px solid #5c5f66;
   border-right: 1px solid #5c5f66;
 }
@@ -310,7 +311,6 @@ footer .inner .log {
 .right-panel {
   width: 25rem;
   min-height: calc(100vh - 4.25rem - 8rem);
-  height: 100%;
   padding: 2rem;
   background-color: #f4f6f9;
   border-right: 1px solid #5c5f66;
