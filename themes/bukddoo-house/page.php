@@ -22,7 +22,7 @@
       </div>
       <div class="notice">
         <?php $notice = get_latest_notice_data(); ?>
-        <?php if ($notice): ?>
+        <?php if (!empty($notice)): ?>
           <article class="notice-post">
             <div class="notice-title">
               <h3>📌 소리있는 아우성</h3>
@@ -38,8 +38,8 @@
                   <p class="notice-excerpt"><?= esc_html($notice['excerpt']) ?></p>
                 </div>
                 <?php
-                  $images = $notice['images'];
-                  $total = count($images);
+                  $images = isset($notice['images']) && is_array($notice['images']) ? $notice['images'] : [];
+$total = count($images);
                   
                   if ($total === 1) {
                     echo '<div class="notice-images row-image">';

@@ -12,5 +12,4 @@ if (is_category('work-roughly')) {
   get_template_part('include/sidebar/sidebar-category');
 }
 ?>
-롸로라~~롸
 </aside>

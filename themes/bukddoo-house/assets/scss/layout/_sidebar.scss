@@ -5,3 +5,75 @@
   background-color: $color-white;
   border-right: $line;
 }
+
+.list-side-content {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-16;
+  .category-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    .category-title {
+      font-size: 1.125rem;
+      color: $color-ashBlue;
+    }
+    .category-description {
+      width: 100%;
+      padding: 1.5rem;
+      border: $line;
+      border-radius: 0.5rem;
+      line-height: 150%;
+      word-break: keep-all;
+    }
+  }
+  .seasonal-widget-area {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-8;
+    p {
+      font-size: 0.875rem;
+      color: $color-ashBlueGray;
+    }
+  }
+}
+
+.side-filter-header {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-24;
+  margin-bottom: $spacing-24;
+  .side-filter-title-area {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-8;
+    .side-filter-headline {
+      display: flex;
+      align-items: center;
+      font-size: 1.875rem;
+      i {
+        font-size: 1.5rem;
+      }
+    }
+    .accent {
+      color: $color-ashBlue;
+    }
+    .side-filter-result-count {
+      font-weight: 800;
+      font-size: 1.5rem;
+    }
+  }
+  .filter-head {
+    width: 100%;
+    padding-bottom: $spacing-8;
+    border-bottom: $line;
+    display: flex;
+    align-items: flex-end;
+    gap: $spacing-2;
+    span {
+      font-size: 0.875rem;
+      font-weight: 800;
+      color: $color-lineGray;
+    }
+  }
+}

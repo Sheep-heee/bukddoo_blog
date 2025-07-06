@@ -1,0 +1,67 @@
+.widget-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-16;
+  padding: $spacing-24;
+  border: $line;
+  border-radius: 0.5rem;
+  .widget-main-content {
+    display: flex;
+    align-items: center;
+    gap: $spacing-24;
+    position: relative;
+    .widget-title {
+      font-size: 1.125rem;
+      color: $color-ashBlue;
+    }
+    .widget-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 800;
+      .refresh-btn {
+        width: 1.875rem;
+        height: 1.875rem;
+        background-color: $color-ashBlueLightGray;
+        border-radius: $spacing-4;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        i {
+          transform: rotate(-90deg);
+          transition: transform 0.6s ease;
+        }
+        &:hover {
+          i {
+            transform: rotate(270deg);
+          }
+        }
+      }
+      .seasonal-list {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: $spacing-16;
+        li {
+          display: flex;
+          gap: $spacing-4;
+          .food-icon {
+            width: 1rem;
+            height: 1rem;
+            aspect-ratio: 1 / 1;
+          }
+        }
+      }
+    }
+  }
+  .item-comment {
+    display: flex;
+    gap: $spacing-8;
+    i {
+      transform: scaleX(-1);
+    }
+  }
+}

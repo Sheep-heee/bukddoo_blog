@@ -1,0 +1,8 @@
+.search-post-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  li:last-child {
+    border-bottom: $line;
+  }
+}

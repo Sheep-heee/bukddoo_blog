@@ -53,7 +53,11 @@ body {
   cursor: url(/wp-content/themes/bukddoo-house/assets/images/cursor-default-40.cur), auto;
 }
 body a,
-body button {
+body button,
+body input[type=checkbox],
+body input[type=radio],
+body input[type=date],
+body .filter-options label {
   cursor: url(/wp-content/themes/bukddoo-house/assets/images/cursor-pointer-big-40.cur), pointer !important;
 }
 body input[type=text],
@@ -92,6 +96,7 @@ textarea,
 select,
 button {
   font: inherit;
+  color: inherit;
   appearance: none;
   background: none;
   border: none;
@@ -159,6 +164,35 @@ main:has(aside) .inner {
   flex: 1;
   border-left: 1px solid #5c5f66;
   border-right: 1px solid #5c5f66;
+}
+
+.pagination-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+.pagination-wrap .page-numbers {
+  width: 1.875rem;
+  height: 1.875rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.25rem;
+  transition: color 0.4s ease;
+}
+.pagination-wrap .page-numbers.current {
+  background-color: #728cb0;
+  color: #f4f6f9;
+  font-weight: 800;
+}
+.pagination-wrap .page-numbers:not(.current):hover {
+  color: #728cb0;
+}
+.pagination-wrap .page-numbers .fa-solid {
+  font-size: 0.875rem;
+  color: #728cb0;
 }
 
 header {
@@ -316,6 +350,78 @@ footer .inner .log {
   border-right: 1px solid #5c5f66;
 }
 
+.list-side-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.list-side-content .category-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.list-side-content .category-info .category-title {
+  font-size: 1.125rem;
+  color: #728cb0;
+}
+.list-side-content .category-info .category-description {
+  width: 100%;
+  padding: 1.5rem;
+  border: 1px solid #5c5f66;
+  border-radius: 0.5rem;
+  line-height: 150%;
+  word-break: keep-all;
+}
+.list-side-content .seasonal-widget-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.list-side-content .seasonal-widget-area p {
+  font-size: 0.875rem;
+  color: #8890a3;
+}
+
+.side-filter-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.side-filter-header .side-filter-title-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.side-filter-header .side-filter-title-area .side-filter-headline {
+  display: flex;
+  align-items: center;
+  font-size: 1.875rem;
+}
+.side-filter-header .side-filter-title-area .side-filter-headline i {
+  font-size: 1.5rem;
+}
+.side-filter-header .side-filter-title-area .accent {
+  color: #728cb0;
+}
+.side-filter-header .side-filter-title-area .side-filter-result-count {
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+.side-filter-header .filter-head {
+  width: 100%;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #5c5f66;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.125rem;
+}
+.side-filter-header .filter-head span {
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: #5c5f66;
+}
+
 .category-post-list {
   width: 100%;
   display: flex;
@@ -328,28 +434,6 @@ footer .inner .log {
 }
 .category-post-list li:last-child {
   border-bottom: 1px solid #5c5f66;
-}
-
-.load-more-wrap {
-  width: 100%;
-  margin-top: 1.5rem;
-  margin-bottom: 4rem;
-  padding: 0 2rem;
-}
-.load-more-wrap .more-text-group {
-  width: 100%;
-  color: #8890a3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.25rem;
-  padding: 0.875rem 0;
-  border-radius: 0.5rem;
-  background-color: #e7e9ed;
-  transition: background-color 0.4s ease;
-}
-.load-more-wrap .more-text-group:hover {
-  background-color: #d4d8e0;
 }
 
 .main-container.inner {
@@ -891,6 +975,15 @@ footer .inner .log {
   color: #f4f6f9;
 }
 
+.search-post-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.search-post-list li:last-child {
+  border-bottom: 1px solid #5c5f66;
+}
+
 .privacy-container {
   width: 100%;
   max-width: 80rem;
@@ -1136,6 +1229,110 @@ article.work-post-card:hover .hover-info .work-info-meta {
   display: flex;
   align-items: center;
   color: #8890a3;
+}
+
+.filter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.filter-form .filter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.filter-form .filter-section .filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.filter-form .filter-section .filter-options label {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.625rem 1rem;
+  border-radius: 0.25rem;
+  background-color: #e7e9ed;
+}
+.filter-form .filter-section .filter-options label.filter-active {
+  color: #f4f6f9;
+  background-color: #728cb0;
+}
+.filter-form .filter-section .tag-search-input {
+  width: 100%;
+  padding: 0.625rem 1.5rem;
+  background-color: #e7e9ed;
+  border-radius: 0.5rem;
+}
+.filter-form .filter-section .tag-search-input::placeholder {
+  color: #8890a3;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.widget-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #5c5f66;
+  border-radius: 0.5rem;
+}
+.widget-box .widget-main-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+}
+.widget-box .widget-main-content .widget-title {
+  font-size: 1.125rem;
+  color: #728cb0;
+}
+.widget-box .widget-main-content .widget-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 800;
+}
+.widget-box .widget-main-content .widget-content .refresh-btn {
+  width: 1.875rem;
+  height: 1.875rem;
+  background-color: #e7e9ed;
+  border-radius: 0.25rem;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+.widget-box .widget-main-content .widget-content .refresh-btn i {
+  transform: rotate(-90deg);
+  transition: transform 0.6s ease;
+}
+.widget-box .widget-main-content .widget-content .refresh-btn:hover i {
+  transform: rotate(270deg);
+}
+.widget-box .widget-main-content .widget-content .seasonal-list {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.widget-box .widget-main-content .widget-content .seasonal-list li {
+  display: flex;
+  gap: 0.25rem;
+}
+.widget-box .widget-main-content .widget-content .seasonal-list li .food-icon {
+  width: 1rem;
+  height: 1rem;
+  aspect-ratio: 1/1;
+}
+.widget-box .item-comment {
+  display: flex;
+  gap: 0.5rem;
+}
+.widget-box .item-comment i {
+  transform: scaleX(-1);
 }
 
 .sort-buttons {

@@ -11,6 +11,7 @@ function get_survival_tip_count() {
   }, $target_categories);
 
   $cat_ids = array_filter($cat_ids);
+  if (empty($cat_ids)) return 101;
 
   $args = array(
     'post_type' => 'post',
@@ -21,7 +22,10 @@ function get_survival_tip_count() {
   );
 
   $query = new WP_Query($args);
-  $total_posts = $query->found_posts;
+
+  if (!($query instanceof WP_Query)) return 101;
+
+  $total_posts = isset($query->found_posts) ? $query->found_posts : 101;
 
   $result = ($total_posts < 101) ? 101 : $total_posts;
   set_transient('bukddoo_survival_tip_count', $result, HOUR_IN_SECONDS);
@@ -42,15 +46,21 @@ function get_latest_notice_data($cat_slug = 'notice-on-edge') {
   if (!$query->have_posts()) return null;
 
   $query->the_post();
-  $content = apply_filters('the_content', get_the_content());
-  preg_match_all('/<img[^>]+>/i', $content, $matches);
-  $plain = wp_strip_all_tags($content);
-  $excerpt = mb_substr($plain, 0, 200) . (mb_strlen($plain) > 200 ? '...' : '');
+  $content = apply_filters('the_content', get_the_content() ?? '');
+  $plain = wp_strip_all_tags($content ?? '');
+  $excerpt = '';
+  if ($plain !== '') {
+    $excerpt = mb_substr($plain, 0, 200) . (mb_strlen($plain) > 200 ? '...' : '');
+  } else {
+    $excerpt = '';
+  }
+  preg_match_all('/<img[^>]+>/i', $content ?? '', $matches);
+  $images = is_array($matches[0]) ? $matches[0] : [];
   $data = [
     'title' => get_the_title(),
     'date' => get_the_date('Y. m. d'),
     'permalink' => get_permalink(),
-    'images' => $matches[0],
+    'images' => $images,
     'excerpt' => $excerpt,
   ];
 

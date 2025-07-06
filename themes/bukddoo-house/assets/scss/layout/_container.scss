@@ -24,3 +24,28 @@ main {
   border-left: $line;
   border-right: $line;
 }
+
+.pagination-wrap {
+  @include flex-center;
+  gap: $spacing-16;
+  padding: $spacing-16 0;
+  .page-numbers {
+    width: 1.875rem;
+    height: 1.875rem;
+    @include flex-center;
+    border-radius: $spacing-4;
+    transition: color 0.4s ease;
+    &.current {
+      background-color: $color-ashBlue;
+      color: $color-white;
+      font-weight: 800;
+    }
+    &:not(.current):hover {
+      color: $color-ashBlue;
+    }
+    .fa-solid {
+      font-size: 0.875rem;
+      color: $color-ashBlue;
+    }
+  }
+}
