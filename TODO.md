@@ -15,10 +15,10 @@
 
 ## 🔄 진행 중
 
-- [ ] 검색결과 페이지 (`search.php`) 템플릿 구성
-- [ ] 카테고리 리스트 페이지 (`category-default.php`) 더보기 ajax -> 페이지네이션으로 변경
-- [ ] `sidebar-filter-search.php` 필터 마크업 작성
-- [ ] 사이드바 필터 스타일 공통화 (`_sidebar-filter.scss`)
+- [x] 검색결과 페이지 (`search.php`) 템플릿 구성
+- [x] 카테고리 리스트 페이지 (`category-default.php`) 더보기 ajax -> 페이지네이션으로 변경
+- [x] `sidebar-filter-search.php` 필터 마크업 작성
+- [x] 사이드바 필터 스타일 공통화 (`_sidebar-filter.scss`)
 - [ ] 작성일 필터용 date picker 적용 여부 결정
 - [ ] 태그 자동완성 UI 및 추천 기능 (Ajax + 리스트 출력)
 - [ ] 검색 쿼리와 필터 조건 연동 (GET 파라미터 처리)
