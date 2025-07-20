@@ -30,7 +30,7 @@
 
 - [ ] `work-roughly` 카테고리 리스트 (갤러리형 레이아웃)
 - [ ] `sidebar-filter-work.php` ACF 기반 필터 구현
-- [ ] `single-work-roughly.php` 템플릿 및 마크업 분기 처리
+- [ ] `single-work-roughly.php` 노션 임베드, 사이드바는 요약, 도구 아이콘, 노션 상세보기, 작업 회고보기 (있을 경우에만)
 - [ ] 반응형 대응 (SCSS 기준 모바일/태블릿 대응)
 - [ ] 404 페이지 커스텀
 - [ ] 스크린리더 대응 (alt, aria-label 등 추가)

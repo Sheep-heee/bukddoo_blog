@@ -1257,16 +1257,30 @@ article.work-post-card:hover .hover-info .work-info-meta {
   color: #f4f6f9;
   background-color: #728cb0;
 }
-.filter-form .filter-section .tag-search-input {
+.filter-form .filter-section .tag_search-box {
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 0.625rem 1.5rem;
   background-color: #e7e9ed;
   border-radius: 0.5rem;
 }
-.filter-form .filter-section .tag-search-input::placeholder {
+.filter-form .filter-section .tag_search-box .tag-search-input {
+  width: 100%;
+}
+.filter-form .filter-section .tag_search-box .tag-search-input::placeholder {
   color: #8890a3;
   line-height: 1;
   letter-spacing: -0.02em;
+}
+.filter-form .filter-section .tag_search-box .tag-search-input:not(:placeholder-shown) + button.clear-btn {
+  display: block;
+}
+.filter-form .filter-section .tag_search-box button.clear-btn {
+  color: #8890a3;
+  margin-right: 0.5rem;
+  display: none;
 }
 
 .widget-box {
