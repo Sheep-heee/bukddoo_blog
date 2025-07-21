@@ -1,5 +1,7 @@
 <?php 
 require get_template_directory() . '/functions/main-data-functions.php';
+require get_template_directory() . '/functions/ajax/load-work-roughly.php';
+require get_template_directory() . '/functions/ajax/get-all-tag.php';
 
 // 더 이상 사용하지 않음 (페이지네이션으로 전환됨)
 // require get_template_directory() . '/functions/ajax/load-category-posts.php';

@@ -1,3 +1,5 @@
+// 더 이상 사용하지 않음 (페이지네이션으로 전환됨)
+
 document.addEventListener("DOMContentLoaded", function () {
   const loadMoreBtn = document.querySelector(".more-text-group");
   const postList = document.querySelector(".category-post-list");

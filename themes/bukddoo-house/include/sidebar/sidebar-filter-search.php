@@ -92,11 +92,14 @@ $formatted_count = number_format($total_found);
 
   <section class="filter-section">
     <h3 class="filter-title">태그 필터</h3>
-    <div class="tag_search-box">
-      <input type="text" name="tag_keyword" id="tagFilterInput" value="<?php echo esc_attr($_GET['tag_keyword'] ?? '') ?>" placeholder="찾는 태그가 있나요?" class="tag-search-input" />
-      <button type="button" id="tagFilter-clearButton" class="clear-btn"><i class="fa-solid fa-circle-xmark"></i></button>
+    <div class="tag_search_input_area">
+      <div class="tag_search-box">
+        <input type="text" name="tag_keyword" id="tagFilterInput" value="<?php echo esc_attr($_GET['tag_keyword'] ?? '') ?>" placeholder="찾는 태그가 있나요?" class="tag-search-input" />
+        <button type="button" id="tagFilter-clearButton" class="clear-btn"><i class="fa-solid fa-circle-xmark"></i></button>
+      </div>
+      <ul class="tag-suggestion-list"></ul>
     </div>
-    <div class="filter-options">
+    <div id="selected-tag" class="filter-options">
       <!-- 추후: 추천 태그 리스트 자동완성으로 JS 처리 -->
     </div>
   </section>

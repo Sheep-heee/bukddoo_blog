@@ -19,8 +19,8 @@
 - [x] 카테고리 리스트 페이지 (`category-default.php`) 더보기 ajax -> 페이지네이션으로 변경
 - [x] `sidebar-filter-search.php` 필터 마크업 작성
 - [x] 사이드바 필터 스타일 공통화 (`_sidebar-filter.scss`)
-- [ ] 작성일 필터용 date picker 적용 여부 결정
 - [ ] 태그 자동완성 UI 및 추천 기능 (Ajax + 리스트 출력)
+- [ ] 작성일 필터용 date picker 적용 여부 결정
 - [ ] 검색 쿼리와 필터 조건 연동 (GET 파라미터 처리)
 - [ ] 검색 인풋창 한 글자(한글, 영어, 특수문자 전부) 입력 금지 방어 및 안내창
 
@@ -31,8 +31,8 @@
 - [ ] `work-roughly` 카테고리 리스트 (갤러리형 레이아웃)
 - [ ] `sidebar-filter-work.php` ACF 기반 필터 구현
 - [ ] `single-work-roughly.php` 노션 임베드, 사이드바는 요약, 도구 아이콘, 노션 상세보기, 작업 회고보기 (있을 경우에만)
-- [ ] 반응형 대응 (SCSS 기준 모바일/태블릿 대응)
 - [ ] 404 페이지 커스텀
+- [ ] 반응형 대응 (SCSS 기준 모바일/태블릿 대응)
 - [ ] 스크린리더 대응 (alt, aria-label 등 추가)
 - [ ] SEO 설정
 - [ ] 구글 애널리틱스 연결

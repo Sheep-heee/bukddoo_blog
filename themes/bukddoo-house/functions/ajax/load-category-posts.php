@@ -1,5 +1,7 @@
 <?php
 
+// 더 이상 사용하지 않음 (페이지네이션으로 전환됨)
+
 add_action('wp_ajax_load_category_posts', 'load_more_category_posts');
 add_action('wp_ajax_nopriv_load_category_posts', 'load_more_category_posts');
 
